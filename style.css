@@ -793,28 +793,41 @@
 }
 
 /* Äußere Navigation Pfeile für Artist-Pop-up */
+/* Navigation Pfeile Artist - weiße Box mit Rand */
 .artist-nav-arrow {
-    position: fixed;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 4rem;
+    font-size: 2rem;
     cursor: pointer;
     user-select: none;
     color: black;
     z-index: 2050;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
+    
+    /* Weiße Box mit schwarzem Rand - wie Close-Box */
+    background: white;
+    border: 3px solid black;
+    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .artist-nav-arrow:hover {
-    transform: translateY(-50%) scale(1.2);
+    transform: translateY(-50%) scale(1.1);
+    background: var(--blue-bg);
+    color: white;
 }
 
 .artist-nav-arrow.prev {
-    left: 200px;
+    left: -80px; /* Links neben der Popup-Box */
 }
 
 .artist-nav-arrow.next {
-    right: 200px;
+    right: -80px; /* Rechts neben der Popup-Box */
 }
 
 /* Verstecke Pfeile auf Mobile */
