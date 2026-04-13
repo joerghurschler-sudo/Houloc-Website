@@ -71,6 +71,11 @@
             transform: translate(-10px, -10px);
         }
 
+        /* Footer Box - weniger Bewegung */
+        #box-bottom:hover {
+            transform: translate(-5px, -5px);
+        }
+
 /* Sichtbarer Indikator am Rand */
 .sidebar-handle {
     position: fixed;
