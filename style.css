@@ -55,7 +55,20 @@
         }
 
         .shape:hover, .green-shape:hover {
-            transform: translate(-3px, -3px);
+            transform: translate(-10px, -10px);
+        }
+
+        /* Hover für alle anderen Boxen */
+        #green-dots:hover, #bientot-tag:hover,
+        #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
+        #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
+        #info-socials:hover, #info-socials-info:hover {
+            transform: translate(-10px, -10px);
+        }
+
+        /* Archive Boxen speziell */
+        #box-bottom-info-archive:hover {
+            transform: translate(-10px, -10px);
         }
 
 /* Sichtbarer Indikator am Rand */
