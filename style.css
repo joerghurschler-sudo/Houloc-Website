@@ -26,12 +26,14 @@
             background: #0047ff;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             overflow-x: hidden;
+            overflow-y: hidden;
+            height: 100%;
         }
 
         .page-wrapper {
             position: relative;
             width: 100vw;
-            min-height: 180vh;
+            min-height: 100vh;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-template-rows: repeat(12, 90px);
