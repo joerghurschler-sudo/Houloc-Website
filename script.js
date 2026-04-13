@@ -419,11 +419,9 @@ artists.forEach((box) => {
     const randomBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)];
     box.style.background = "#ffffff"; 
     
-    // NASS-EFFEKT + FARBIGER RAND (3px wie in CSS)
+    // FARBIGER RAND (ohne Verlauf)
     box.style.boxShadow = `
-       0 12px 25px rgba(0, 0, 0, 0.15),
-        inset 6px 6px 12px rgba(255, 255, 255, 0.8), 
-        inset -6px -6px 12px rgba(0, 0, 0, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.12),
         inset 0 0 0 3px ${randomBorderColor}
     `;
 
