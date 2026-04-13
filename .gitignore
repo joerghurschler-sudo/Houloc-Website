@@ -1,0 +1,11 @@
+# Images (too large for GitHub)
+img/*.jpg
+img/*.jpeg
+img/*.png
+img/*.avif
+img/*.webp
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

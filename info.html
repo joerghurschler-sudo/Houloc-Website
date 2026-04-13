@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Houloc | Index</title>
+   <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+     <main class="info-page-container">
+    
+      <header id="box-top-info" class="shape">
+            <h1>les<br>Informations</h1>
+            <p class="subtitle">Ressources et plus</p>
+        </header>
+    
+
+     
+     
+ 
+     
+     
+       <section id="info-menu" class="shape">
+        <nav>
+            <ul>
+                <li><a href="index.html">Current</a></li>
+                <li><a href="artistes.html">Artistes</a></li>
+                <li><a href="archives.html">Archives</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div id="info-nav-box" class="info-nav-box" >
+        <ul class="info-menu">
+            <li onclick="openInfoPopup('apropos')">À PROPOS</li>
+            <li onclick="openInfoPopup('presse')">PRESSE</li>
+            <li onclick="openInfoPopup('partenaires')">PARTENAIRES</li> 
+            <li onclick="openInfoPopup('newsletter')">NEWSLETTER</li>
+        </ul>
+    </div>
+
+  
+     
+            <div id="info-socials-info">
+            <div class="socials">
+                <a href="https://www.instagram.com/le.houloc/" target="_blank" aria-label="Instagram">
+                    <img src="img/instagram-icon.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/LeHouloc/" target="_blank" aria-label="Facebook">
+                    <img src="img/facebook-icon.svg" alt="Facebook">
+                </a>
+            </div>
+        </div>
+         
+           <footer id="box-bottom-info-info" class="shape">
+            <div class="footer-info">
+                <div class="google-maps">
+                    <a href="https://maps.app.goo.gl/RqLSPvRZpQ97soY88" target="_blank" aria-label="Google-maps">
+                        <img src="img/map-icon.svg" alt="Map">
+                    </a>
+                    <p>
+                        Le Houloc<br>
+                        18 Rue Jules Ferry<br>
+                        93120 La Courneuve
+                    </p>
+                </div>
+                <div class="mail">
+                    <a href="mailto:le.houloc@gmail.com" aria-label="Mail senden">
+                        <img src="img/mail-icon.svg" alt="Mail">
+                    </a>
+                    <a href="mailto:le.houloc@gmail.com">le.houloc@gmail.com</a>
+                </div>
+            </div>
+        </footer>
+     
+     
+
+
+
+</main>
+    
+         
+
+<div id="info-overlay" class="overlay">
+    <div class="close-box" onclick="closeInfoOverlay()">×</div>
+    <div class="overlay-content">
+        <div id="info-content-target">
+            </div>
+    </div>
+</div>
+   
+<script src="script.js"></script>
+</body>
+</html>
