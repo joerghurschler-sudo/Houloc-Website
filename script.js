@@ -671,34 +671,33 @@ function createArtistNavArrows(prevArtist, nextArtist) {
     // Zuerst alle existierenden Pfeile entfernen
     removeArtistNavArrows();
     
-    // Overlay Content finden (die weiße Box)
-    const overlayContent = document.querySelector('#artist-overlay .overlay-content');
+    // Overlay finden (nicht die content-box!)
+    const overlay = document.getElementById('artist-overlay');
     
     // Linker Pfeil (vorheriger Künstler)
     const prevArrow = document.createElement('div');
     prevArrow.className = 'artist-nav-arrow prev';
     prevArrow.innerHTML = '←';
-    prevArrow.onclick = () => openArtist(prevArtist);
+    prevArrow.onclick = (e) => {
+        e.stopPropagation();
+        openArtist(prevArtist);
+    };
     prevArrow.title = `Vorheriger: ${prevArtist}`;
     
     // Rechter Pfeil (nächster Künstler)
     const nextArrow = document.createElement('div');
     nextArrow.className = 'artist-nav-arrow next';
     nextArrow.innerHTML = '→';
-    nextArrow.onclick = () => openArtist(nextArtist);
+    nextArrow.onclick = (e) => {
+        e.stopPropagation();
+        openArtist(nextArtist);
+    };
     nextArrow.title = `Nächster: ${nextArtist}`;
     
-    // Pfeile zur Popup-Box hinzufügen (nicht zum Body)
-    if (overlayContent) {
-        overlayContent.appendChild(prevArrow);
-        overlayContent.appendChild(nextArrow);
-    } else {
-        // Fallback: zum Overlay
-        const overlay = document.getElementById('artist-overlay');
-        if (overlay) {
-            overlay.appendChild(prevArrow);
-            overlay.appendChild(nextArrow);
-        }
+    // Pfeile zum Overlay hinzufügen (auf Body-Ebene, außerhalb der content-box)
+    if (overlay) {
+        overlay.appendChild(prevArrow);
+        overlay.appendChild(nextArrow);
     }
 }
 
