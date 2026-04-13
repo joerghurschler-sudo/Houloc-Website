@@ -63,7 +63,7 @@
         #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
         #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
         #info-socials:hover, #info-socials-info:hover {
-            transform: translate(-10px, -10px);
+            transform: translate(10px, 10px);
         }
 
         /* Archive Boxen speziell */
@@ -73,7 +73,11 @@
 
         /* Footer Box - weniger Bewegung */
         #box-bottom:hover {
-            transform: translate(-5px, -5px);
+            transform: translate(-3px, -3px);
+            box-shadow: 
+                inset 0 0 0 4px rgba(0, 0, 0, 2),
+                0 4px 10px rgba(0, 0, 0, 0.08), 
+                0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
 /* Sichtbarer Indikator am Rand */
