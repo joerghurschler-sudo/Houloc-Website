@@ -39,8 +39,8 @@ const artistData = {
         instagram: "https://www.instagram.com/marta.budkiewicz/",
         images: [
             { src: "img/Marta-Budkiewicz_dessin_serieminiscences.jpg", caption: "Dessin série Reminiscences, 100x73cm" },
-            { src: "img/Marta-Budkiewicz_Oracles-predictions.jpg", caption: "Oracles et prédictions n°8, 2025, vue de l'exposition Nymphs just wannahave fun, Le Houloc 2025" },
-            { src: "img/Marta-Budkiewicz_Pattern_dessinausol.jpeg", caption: "Pattern, dessin au sol, craie blanche, vue exposition Intervalles, Angle Art Contemporain, Saint-Paul Trois Châteaux" }
+            { src: "img/Marta-Budkiewicz_Oracles-predictions.JPG", caption: "Oracles et prédictions n°8, 2025, vue de l'exposition Nymphs just wannahave fun, Le Houloc 2025" },
+            { src: "img/Marta-Budkiewicz_Pattern_dessinausol.avif", caption: "Pattern, dessin au sol, craie blanche, vue exposition Intervalles, Angle Art Contemporain, Saint-Paul Trois Châteaux" }
         ]
     },
 
@@ -56,16 +56,44 @@ const artistData = {
             { src: "img/Pauline-Toyer_CCCOD-2.jpg", caption: "CCCOD 2" }
         ]
     },
+    "Jules Dumoulin": {
+        text: "Diplômé de la Villa Arson en 2018, ma pratique se déploie dans le champ de la sculpture et de l'installation, particulièrement dans l'usage des techniques de moulage.<br><br>À la suite d'un grave accident de la route en 2015, j'ai ressenti le besoin, pour me ré-éduquer et pour me vider la tête, de marcher. J'ai arpenté de long en large la ville de Nice et toutes celles que je visitais. Lors de ces dérivées, mon attention s'arrêtait exclusivement sur des parties de véhicules cassés, des bribes déformées d'objets mécaniques. Ces objets me trouvaient, en quelque sorte. Ces fragments, je les ai accumulés, et, dans l'idée de les « rendre œuvre », je les ai soclés : je leur ai construit pour eux des supports de métal.<br><br>La Villa Arson terminée, j'ai rapporté à Paris uniquement la partie « objet trouvé » qui composait mes sculptures. J'ai commencé à les mouler puis à les reproduire en cire que je teignait de pigments et de pastels fondus.<br><br>La cire m'a laissée, d'une part, une forme de « droit à l'erreur » — je pouvais refondre ce qui ne me convenait pas, travailler ma technique de moulage, et l'affiner vers un geste plus simple centré sur la couleur, dans une démarche picturale. La sérialisation s'est établie comme un élément central de ma pratique. Je produis un minimum de formes nouvelles, je re-moule ainsi plutôt mes sculptures et j'en scanne certaines pour les imprimer en 3D et jouer avec leur échelle, leurs matériaux.<br><br>Ainsi, mon travail s'est progressivement constitué autour des notions de sobriété et de réemploi empruntées à la pensée écologique, visant à tendre vers une remise en circulation perpétuelle des objets que je crée. Je trouve intéressant par ce protocole de fragiliser la valeur d'unicité de l'œuvre d'art ainsi que celle du geste artistique à l'heure où la notion de productivité est sérieusement remise en question.",
+        instagram: "https://www.instagram.com/julesdumoulin/",
+        images: [
+            { src: "img/Jules-Dumoulin_1.avif", caption: "" },
+            { src: "img/Jules-Dumoulin_2.avif", caption: "" },
+            { src: "img/Jules-Dumoulin_3.avif", caption: "" },
+            { src: "img/Jules-Dumoulin_4.avif", caption: "" },
+            { src: "img/Jules-Dumoulin_5.avif", caption: "" }
+        ]
+    },
+    "Noemie Vincent Maudry": {
+        text: "Noémie Vincent Maudry, artiste designeuse, née en 2001 en Bourgogne, est diplômé des Beaux-Arts du Mans en Design et Territoire en 2024 autour d'un travail sur des relations sensibles entre les êtres humains et leur environnement, notamment à travers l'attention portée aux plantes adventices, souvent réduites au statut de «mauvaises herbes». Ces végétaux, présents dans les interstices des villes et les marges des paysages, deviennent des figures de résistance et des indicateurs d'écosystèmes discrets. Les notions d'espaces rudéraux, de friches et de tiers paysage que décrit dans son travail Gilles Clément permettent de penser ces lieux délaissés comme des réservoirs de biodiversité, et ces réflexions prennent espace dans son travail à travers des sculptures, objets, photographies et installations, ainsi que des procédés expérimentaux comme l'anthotype. Elle interroge notre regard sur le vivant et cherche à cultiver une attention renouvelée au monde qui nous entoure, en développant un dialogue poétique entre humains, matières et territoires. Elle a exposé au Musée d'Art Moderne de Paris, Les Flammes en 2021, au Centre Céramique Contemporaine de La Borne Digital Soba, à la Biennale Internationale de Design de Saint Étienne « Le monde Sinon rien » en 2022, et récemment à Paris, au Wonder, Summer Body et au Micro Centre d'Art de l'Eprouvette, Terra Strata.",
+        instagram: "https://www.instagram.com/noemie.eon.vm/",
+        images: [
+            { src: "img/Noemie-Vincent-Maudry_1.avif", caption: "" },
+            { src: "img/Noemie-Vincent-Maudry_2.avif", caption: "" },
+            { src: "img/Noemie-Vincent-Maudry_3.avif", caption: "" }
+        ]
+    },
+    "Anaïs Benguigui": {
+        text: "Anaïs Benguigui est une artiste peintre basée à Paris. Diplômée des Beaux-Arts de Paris et formée en philosophie à la Sorbonne, elle développe une pratique picturale qui explore l'identité comme un processus de transformation continue, façonné par les relations, la mémoire et les héritages. À partir de photographies issues de son environnement proche, elle réalise des peintures figuratives de grand format qui interrogent les moments de transition psychique et relationnelle.",
+        website: "https://www.anaisbenguigui.com",
+        instagram: "https://www.instagram.com/anaisbenguigui/",
+        images: [
+            { src: "img/Anais-Benguigui_1.avif", caption: "" }
+        ]
+    },
     "Joerg Hurschler": {
-        text: "Joerg Hurschler, né en Suisse, vit et travaille entre Paris et le cyberespace. Il a étudié à la Lucerne School of Art and Design dans la section Vidéo et Arts in Film, et à la Hongik University de Séoul, en Corée du Sud. Son travail artistique se situe à l'intersection de l'animation 3D, de la vidéo, du jeu vidéo et de la sculpture. Il explore l'interdépendance entre le monde physique et le monde virtuel.",
+        text: "Joerg Hurschler est un artiste visuel travaillant dans les nouveaux médias, mêlant cinéma, animation et esthétique du jeu vidéo pour explorer comment les systèmes de pouvoir façonnent l'espace, la perception, l'identité et la vie quotidienne. Il est titulaire d'un Master of Arts en cinéma de la Haute École d'art et de design de Lucerne (Suisse) et de l'Université Hongik à Séoul, en Corée du Sud.",
         website: "https://www.joerghurschler.com",
         instagram: "https://www.instagram.com/joergoninsta",
         images: [
             { src: "img/Joerg-Hurschler-1.jpg", caption: "" },
-            { src: "img/Joerg-Hurschler-2.jpg", caption: "" },
-            { src: "img/Joerg-Hurschler-3.jpg", caption: "" },
-            { src: "img/Joerg-Hurschler-4.jpg", caption: "" },
-            { src: "img/Joerg-Hurschler-5.jpg", caption: "" }
+            { src: "img/Joerg-Hurschler-2.jpg", caption: "Schwarm, 2023" },
+            { src: "img/Joerg-Hurschler-3.jpg", caption: "Deadworld Protocol, 2025" },
+            { src: "img/Joerg-Hurschler-4.jpg", caption: "The aesthetics of state zero - Body 0.1, 2025" },
+            { src: "img/Joerg-Hurschler-5.jpg", caption: "Entités numérique - Variante x0.01z, 2022" }
         ]
     },
 
@@ -136,15 +164,16 @@ const artistData = {
     },
 
     "Laura Rouzet": {
-        text: "Sous forme d’anticipation spéculative, Laura Rouzet tisse des univers aux frontières poreuses où les environnements humain, végétal, animal, minéral ou artificiel se confondent et se prolongent. Explorant les vestiges du vivant et ses potentialités d’évolution, son travail plonge dans les zones troubles de la nature et de ses psychés. À l’intersection de la sculpture, de l’installation, et de la danse, sa pratique est marquée par l’expérience du corps, qu’elle perçoit comme un tissu connectif qui nous lie à l’autre. De la prise d’empreinte au mouvement, le corps et la matière – argile, sève naturelle, grès – s’émancipent dans des espaces liminaires pour devenir autre. En cette ère d’anxiété environnementale, Laura Rouzet interroge la perméabilité des statuts humains et non-humains en imaginant de nouvelles formes d’équilibre dans un futur alternatif, possible ou rêvé.",
+        text: "Sous forme d'anticipation spéculative, Laura Rouzet tisse des univers aux frontières poreuses où les environnements humain, végétal, animal, minéral ou artificiel se confondent et se prolongent. Explorant les vestiges du vivant et ses potentialités d'évolution, son travail plonge dans les zones troubles de la nature et de ses psychés. À l'intersection de la sculpture, de l'installation, et de la danse, sa pratique est marquée par l'expérience du corps, qu'elle perçoit comme un tissu connectif qui nous lie à l'autre. De la prise d'empreinte au mouvement, le corps et la matière – argile, sève naturelle, grès – s'émancipent dans des espaces liminaires pour devenir autre. En cette ère d'anxiété environnementale, Laura Rouzet interroge la perméabilité des statuts humains et non-humains en imaginant de nouvelles formes d'équilibre dans un futur alternatif, possible ou rêvé.",
         website: "https://www.laurarouzet.com/",
         instagram: "https://www.instagram.com/laurarouzet/",
         images: [
-            { src: "img/vhs-alexisguillier-03.jpg", caption: "" },
-            { src: "img/vhs-alexisguillier-04.jpg", caption: "" },
-            { src: "img/vhs-alexisguillier-05.jpg", caption: "" },
-            { src: "img/vhs-alexisguillier-06.jpg", caption: "" },
-            { src: "img/vhs-alexisguillier-07.jpg", caption: "" }
+            { src: "img/Laura_Rouzet_1.jpg", caption: "" },
+            { src: "img/Laura_Rouzet_2.jpg", caption: "" },
+            { src: "img/Laura_Rouzet_3.jpg", caption: "" },
+            { src: "img/Laura_Rouzet_4.jpg", caption: "" },
+            { src: "img/Laura_Rouzet_5.jpg", caption: "" },
+            { src: "img/Laura_Rouzet_6.jpg", caption: "" }
         ]
     },
 
@@ -201,15 +230,15 @@ const artistData = {
     },
 
     "Mikaël Monchicourt": {
-        text: "Le travail de l'artiste Mikaël Monchicourt est fait de détours, de tâtonnements, de questionnements dont l’issue est à rechercher dans un recoin labyrinthique de l’esprit. La pratique ondoie, tout comme les idées chez l’artiste qui procède par assemblage, accumulation, distorsion et effacement combinant des éléments hétérogènes (peinture, encre, impression, colle blanche, aluminium, rhodoïd, tissu, couverture de survie) donnant corps à une image concentrée, où le chaos devient équilibre formel. Mikaël Monchicourt décortique, brise, tisse à l’infini des liens entre les images, les mots, leurs sons, leur forme pour les faire basculer d’un état de symbole à celui de matière, physique et palpable, soumise à la loi de la gravité et aux flux.<br><br>Les images et les médiums s’entremêlent, se recouvrent pour finalement être piégés dans la résine. L’épaisseur devient plane, compressée, ne laissant que le souvenir de son histoire et de ses aspérités. On voit sans voir, on imagine plutôt, tel un archéologue qui recrée ce qui a pu se jouer sur son lieu de fouille.<br><br>Les œuvres de l’artiste sont autant le résultat d’une pratique minutieuse, maîtrisée et consciente que d’une recherche empirique faite de rencontres hasardeuses sur Google Image, de concours de circonstances et d’expérimentations. Il s’interroge sur les circonstances d’existence d’une image, sa mise à distance tout en la précipitant sous une résine qui se voudrait inaltérable.<br><br>L’artiste suit ainsi la route sinueuse de ses obsessions se transformant en collectionneur de statistiques (Le bureau du stat- isticien, 2014 ; série Stats, 2021) de lettres (Collection de lettres, 2018), de formes, n’hésitant pas à réemployer les images de ses œuvres qu’il dissèque pour leur donner une autonomie et les faire entrer dans un nouvel inventaire (série Sans titre, 2021). (...)<br><br>Myriam BOUTRY, juin 2021",
+        text: "Le travail de l'artiste Mikaël Monchicourt est fait de détours, de tâtonnements, de questionnements dont l'issue est à rechercher dans un recoin labyrinthique de l'esprit. La pratique ondoie, tout comme les idées chez l'artiste qui procède par assemblage, accumulation, distorsion et effacement combinant des éléments hétérogènes (peinture, encre, impression, colle blanche, aluminium, rhodoïd, tissu, couverture de survie) donnant corps à une image concentrée, où le chaos devient équilibre formel. Mikaël Monchicourt décortique, brise, tisse à l'infini des liens entre les images, les mots, leurs sons, leur forme pour les faire basculer d'un état de symbole à celui de matière, physique et palpable, soumise à la loi de la gravité et aux flux.<br><br>Les images et les médiums s'entremêlent, se recouvrent pour finalement être piégés dans la résine. L'épaisseur devient plane, compressée, ne laissant que le souvenir de son histoire et de ses aspérités. On voit sans voir, on imagine plutôt, tel un archéologue qui recrée ce qui a pu se jouer sur son lieu de fouille.<br><br>Les œuvres de l'artiste sont autant le résultat d'une pratique minutieuse, maîtrisée et consciente que d'une recherche empirique faite de rencontres hasardeuses sur Google Image, de concours de circonstances et d'expérimentations. Il s'interroge sur les circonstances d'existence d'une image, sa mise à distance tout en la précipitant sous une résine qui se voudrait inaltérable.<br><br>L'artiste suit ainsi la route sinueuse de ses obsessions se transformant en collectionneur de statistiques (Le bureau du stat- isticien, 2014 ; série Stats, 2021) de lettres (Collection de lettres, 2018), de formes, n'hésitant pas à réemployer les images de ses œuvres qu'il dissèque pour leur donner une autonomie et les faire entrer dans un nouvel inventaire (série Sans titre, 2021). (...)<br><br>Myriam BOUTRY, juin 2021",
         website: "https://www.mikael-monchicourt.com",
         instagram: "https://www.instagram.com/mikaelmonchicourt/",
         images: [
-            { src: "", caption: "" },
-            { src: "", caption: "" },
-            { src: "", caption: "" },
-            { src: "", caption: "" },
-            { src: "", caption: "" }
+            { src: "img/Mikaël Monchicourt.avif", caption: "" },
+            { src: "img/Mikaël Monchicourt_2.avif", caption: "" },
+            { src: "img/Mikaël Monchicourt_3.avif", caption: "" },
+            { src: "img/Mikaël Monchicourt_4.avif", caption: "" },
+            { src: "img/Mikaël Monchicourt_5.avif", caption: "" }
         ]
     },
 
@@ -291,7 +320,7 @@ const artistData = {
     },
 
     "Vanina Langer": {
-        text: "Mon travail questionne notre relation à l'infini, du vivant et de l'espace. Son inconcevabilité pour notre esprit qui pense en termes de contenu/contenant, me fascine. Dans l'histoire de l'art, j'ai toujours été interpellée par la relation des figures au fond, arrière-plan mais aussi sens de l'oeuvre, qui lorsqu'il s'agit d'un chef d'oeuvre, fuit toujours ailleurs, laissant le spectateur dans un cheminement éternel.<br><br>Les sujets qui travaillent mes oeuvres sont la femme, la nature et la culture du sens et d'une spiritualité dans la création d'images et de mythologies. Le motif du lien – ligne de fuite tout comme liane lancée dans sa course à la lumière, est un fil conducteur plastique et théorique.<br><br>Qu'il s'agisse de dessins ou d'installations, d'œuvres monumentales ou de microcosmes miniatures, je pars toujours d'une chute, d'un fragment; tout se meut ensuite comme une plante. Je dessine, recouvre, coupe et pare jusqu'à une forme de floraison. Les motifs se reproduisent pour être recouverts, retaillés, recousus, ré-parés… jusqu'à ce que le fond et la forme semblent rester en suspens.<br><br>J'accumule références et motifs par analogies jusqu'à une forme d'éclatement polysémique. Son mystère s'exprime souvent dans des œuvres totales proposant au spectateur une expérience polysensorielle. Les mythologies que je compose sur quelques années tendent de plus en plus vers une forme de fête.",
+        text: "Mon travail questionne notre relation à l'infini, du vivant et de l'espace. Son inconcevabilité pour notre esprit qui pense en termes de contenu/contenant, me fascine. Dans l'histoire de l'art, j'ai toujours été interpellée par la relation des figures au fond, arrière-plan mais aussi sens de l'oeuvre, qui lorsqu'il s'agit d'un chef d'oeuvre, fuit toujours ailleurs, laissant le spectateur dans un cheminement éternel.<br><br>Les sujets qui travaillent mes oeuvres sont la femme, la nature et la culture du sens et d'une spiritualité dans la création d'images et de mythologies. Le motif du lien – ligne de fuite tout comme liane lancée dans sa course à la lumière, est un fil conducteur plastique et théorique.<br><br>Qu'il s'agisse de dessins ou d'installations, d'œuvres monumentales ou de microcosmes miniatures, je pars toujours d'une chute, d'un fragment; tout se meut ensuite comme une plante. Je dessine, recouvre, coupe et pare jusqu'à une forme de cuisson. Les motifs se reproduisent pour être recouverts, retaillés, recousus, ré-parés… jusqu'à ce que le fond et la forme semblent rester en suspens.<br><br>J'accumule références et motifs par analogies jusqu'à une forme d'éclatement polysémique. Son mystère s'exprime souvent dans des œuvres totales proposant au spectateur une expérience polysensorielle. Les mythologies que je compose sur quelques années tendent de plus en plus vers une forme de fête.",
         website: "https://www.vaninalanger.com",
         instagram: "https://www.instagram.com/vanina.langer/",
         images: [
@@ -300,6 +329,17 @@ const artistData = {
             { src: "img/Vanina-Langer_Faire-lautruche-Menines.jpg", caption: "Faire l'autruche - Ménines" },
             { src: "img/Vanina-Langer_Gloria-Performance.jpg", caption: "Gloria - Performance" },
             { src: "img/Vanina-Langer_Portrait-Cleo-Marguerite.jpg", caption: "Portrait Cléo Marguerite" }
+        ]
+    },
+
+    "Elisa Chaveneau": {
+        text: "Elisa Chaveneau est née en 2000 à Châtellerault. Elle vit et travaille à Paris. Artiste plasticienne, elle est diplômée du DNSEP MAGMA (Art & Géomatériaux) aux Beaux-Arts du Mans et d'un master en Recherche et Création - Écologie des arts et des médias à l'Université Paris-Vincennes. Elle développe dans sa pratique artistique une cohabitation sensible autour des relations inter-espèces, entre les humains et les non-humains. Elle interroge nos relations et notre capacité à coexister avec les vivants autres qu'humains à travers des sculptures et des installations, mais aussi par le dessin ou le son. Ses recherches se fondent sur l'idée d'une crise de la sensibilité, c'est-à-dire une perte de lien avec les formes de vies autres qu'humaines, invisibles, rendues muettes par nos systèmes productivistes. Elle a exposé au Musée d'Art Moderne de Paris, Les Flammes en 2021, au Centre Céramique Contemporaine de La Borne Digital Soba, à la Biennale Internationale Design de Saint Étienne Le monde Sinon rien en 2022, au Jardinier de Montrouge en2025. Et récemment à Paris au Wonder, avec l'exposition Summer Body et au Micro Centre d'Art de L'éprouvette avec Terra Strata, aux côtés de Noémie Vincent-Maudry avec qui elle a co-fondé le studio Nom'É en 2025.",
+        instagram: "https://www.instagram.com/elisachaveneau/",
+        images: [
+            { src: "img/Elisa-Chaveneau_1.avif", caption: "" },
+            { src: "img/Elisa-Chaveneau_2.avif", caption: "" },
+            { src: "img/Elisa-Chaveneau_3.avif", caption: "" },
+            { src: "img/Elisa-Chaveneau_4.avif", caption: "" }
         ]
     }
 };
@@ -671,34 +711,23 @@ function createArtistNavArrows(prevArtist, nextArtist) {
     // Zuerst alle existierenden Pfeile entfernen
     removeArtistNavArrows();
     
-    // Overlay finden (nicht die content-box!)
-    const overlay = document.getElementById('artist-overlay');
-    
     // Linker Pfeil (vorheriger Künstler)
     const prevArrow = document.createElement('div');
     prevArrow.className = 'artist-nav-arrow prev';
     prevArrow.innerHTML = '←';
-    prevArrow.onclick = (e) => {
-        e.stopPropagation();
-        openArtist(prevArtist);
-    };
+    prevArrow.onclick = () => openArtist(prevArtist);
     prevArrow.title = `Vorheriger: ${prevArtist}`;
     
     // Rechter Pfeil (nächster Künstler)
     const nextArrow = document.createElement('div');
     nextArrow.className = 'artist-nav-arrow next';
     nextArrow.innerHTML = '→';
-    nextArrow.onclick = (e) => {
-        e.stopPropagation();
-        openArtist(nextArtist);
-    };
+    nextArrow.onclick = () => openArtist(nextArtist);
     nextArrow.title = `Nächster: ${nextArtist}`;
     
-    // Pfeile zum Overlay hinzufügen (auf Body-Ebene, außerhalb der content-box)
-    if (overlay) {
-        overlay.appendChild(prevArrow);
-        overlay.appendChild(nextArrow);
-    }
+    // Pfeile zum Body hinzufügen
+    document.body.appendChild(prevArrow);
+    document.body.appendChild(nextArrow);
 }
 
 // Äußere Navigationspfeile entfernen

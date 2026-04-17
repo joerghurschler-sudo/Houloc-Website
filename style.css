@@ -240,27 +240,67 @@
            
         }
 
-/* Hover-Effekt für "plus d'informations" */
-#event-box p:last-child {
-   
-   margin-top: 2rem;
-    font-weight: 500;
-     text-decoration: underline;
+/* Vortex-Animation für "plus d'informations" */
+.morph-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 1.5rem;
     cursor: pointer;
-    display: inline-block; /* Wichtig für die Skalierung */
-    transition: 
-        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-        color 0.3s ease;
-    
-    will-change: transform; /* Bereitet den Browser auf die Bewegung vor */
-    font-size: 1.2rem;
-
 }
 
-#event-box:hover p:last-child {
-     color: blue;
-    transform: scale(1.1); /* Ein bisschen größer */
+.morph-text {
+    font-weight: 500;
+    font-size: 1.2rem;
     text-decoration: underline;
+    color: var(--white);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.morph-text span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.morph-container:hover .morph-text span {
+    animation: vortexWave 0.8s ease-in-out infinite, colorPulse 1s ease-in-out infinite;
+}
+
+.morph-text span:nth-child(1) { animation-delay: 0s, 0s; }
+.morph-text span:nth-child(2) { animation-delay: 0.05s, 0.05s; }
+.morph-text span:nth-child(3) { animation-delay: 0.1s, 0.1s; }
+.morph-text span:nth-child(4) { animation-delay: 0.15s, 0.15s; }
+.morph-text span:nth-child(5) { animation-delay: 0.2s, 0.2s; }
+.morph-text span:nth-child(6) { animation-delay: 0.25s, 0.25s; }
+.morph-text span:nth-child(7) { animation-delay: 0.3s, 0.3s; }
+.morph-text span:nth-child(8) { animation-delay: 0.35s, 0.35s; }
+.morph-text span:nth-child(9) { animation-delay: 0.4s, 0.4s; }
+.morph-text span:nth-child(10) { animation-delay: 0.45s, 0.45s; }
+.morph-text span:nth-child(11) { animation-delay: 0.5s, 0.5s; }
+.morph-text span:nth-child(12) { animation-delay: 0.55s, 0.55s; }
+.morph-text span:nth-child(13) { animation-delay: 0.6s, 0.6s; }
+.morph-text span:nth-child(14) { animation-delay: 0.65s, 0.65s; }
+.morph-text span:nth-child(15) { animation-delay: 0.7s, 0.7s; }
+.morph-text span:nth-child(16) { animation-delay: 0.75s, 0.75s; }
+.morph-text span:nth-child(17) { animation-delay: 0.8s, 0.8s; }
+.morph-text span:nth-child(18) { animation-delay: 0.85s, 0.85s; }
+
+@keyframes vortexWave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+@keyframes colorPulse {
+    0%, 100% {
+        color: var(--white);
+    }
+    50% {
+        color: var(--blue-bg);
+    }
 }
 
 /* Das Event-Overlay mit Blur-Effekt */
@@ -276,14 +316,13 @@
     -webkit-backdrop-filter: blur(8px);
     z-index: 2000;
     overflow-y: auto;
-    /* Entferne oder ändere das Padding: */
-    padding: 50px 20px; 
+    padding: 20px 20px 30px 20px; /* Rand zum Bildschirmrand, 30px unten */
     box-sizing: border-box;
-    /* Zentriert den Wrapper horizontal */
     text-align: center; 
 }
 
 .event-wrapper {
+
     display: inline-flex; /* Sorgt dafür, dass die Boxen nebeneinander stehen */
     align-items: flex-start;
     justify-content: center;
@@ -298,8 +337,8 @@
     background: white;
     width: 100%;
     max-width: 800px;
-    padding: 60px;
-    border: 3px solid black;
+    padding: 50px;
+    border: 4px solid black;
     border-top-left-radius: 60px;
     box-sizing: border-box;
     /* Kein margin: auto mehr, das macht der Wrapper */
@@ -360,9 +399,13 @@
                 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
+        #box-mid:hover {
+            transform: translate(10px, 10px);
+        }
+
 #green-dots {
-            grid-column: 7 / 11;
-            grid-row: 9 / 10;
+            grid-column: 6 / 10;
+            grid-row: 9 / 10    ;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -370,7 +413,7 @@
             padding: 20px 0;
             border-radius: 100px 450px 80px 50px;
             background: var(--white);
-            z-index: 17 ;
+            z-index: 17;
   box-shadow: 
                 inset 0 0 0 4px rgba(0, 0, 0, 2),
                 0 8px 20px rgba(0, 0, 0, 0.12), 
@@ -471,7 +514,7 @@
 
         #bientot-tag {
             grid-column: 9   / 11 ;
-            grid-row: 4/ 6;
+            grid-row: 4/ 5;
             background: var(--red-accent);
             color: var(--white);
             border-radius: 29px;
@@ -793,41 +836,28 @@
 }
 
 /* Äußere Navigation Pfeile für Artist-Pop-up */
-/* Navigation Pfeile Artist - weiße Box mit Rand */
 .artist-nav-arrow {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: 4rem;
     cursor: pointer;
     user-select: none;
     color: black;
     z-index: 2050;
-    transition: transform 0.2s ease, background 0.2s ease;
-    
-    /* Weiße Box mit schwarzem Rand - wie Close-Box */
-    background: white;
-    border: 3px solid black;
-    border-radius: 12px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .artist-nav-arrow:hover {
-    transform: translateY(-50%) scale(1.1);
-    background: var(--blue-bg);
-    color: white;
+    transform: translateY(-50%) scale(1.2);
 }
 
 .artist-nav-arrow.prev {
-    left: -80px; /* Links neben der Popup-Box */
+    left: 200px;
 }
 
 .artist-nav-arrow.next {
-    right: -80px; /* Rechts neben der Popup-Box */
+    right: 200px;
 }
 
 /* Verstecke Pfeile auf Mobile */
@@ -1174,8 +1204,8 @@
 .archive-close-button {
     /* Positionierung relativ zum Wrapper */
     position: absolute; 
-    top: 6.6%;           /* Bündig mit der Oberkante des Popups */
-    left: 400px;      /* Schiebt den Button links neben das Fenster (50px Breite + 20px Abstand) */
+    top: 8%;           /* Bündig mit der Oberkante des Popups */
+    left: 480px;      /* Schiebt den Button links neben das Fenster (50px Breite + 20px Abstand) */
     width: 50px;
     height: 50px;
     border: 3px solid black;
@@ -1386,8 +1416,8 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
 #info-socials-info {
-              grid-column: 8 / 15; /* Schließt rechts mit dem Menü ab */
-    grid-row: 8;         /* Ganz unten */
+              grid-column: 6 / 12; /* Schließt rechts mit dem Menü ab */
+    grid-row: 7;         /* Ganz unten */
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -1417,7 +1447,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
    #box-bottom-info-info {
             grid-column: 8 / 13;
-            grid-row: 5 / 8;
+            grid-row: 4 / 8;
             border-radius: 0 100px 10px 100px;
             z-index: 12;
             margin-top: -30px;
