@@ -151,6 +151,19 @@ const artistData = {
         ]
     },
 
+    "Mehdi Besnainou": {
+        text: "Mehdi Besnainou Dounkas est un artiste français vivant à Paris.<br><br>Il fait ses études à Olivier de Serres et aux Beaux Arts de Paris.<br><br>Le travail de Mehdi Besnainou est pluridisciplinaire et questionne avec humour et sarcasme les rites, codes et tendances actuelles de sa génération et de ses contemporains.<br><br>Que ce soit dans ses pensées les plus introspectives ou dérisoires sur la condition humaine, ses troubles psychologiques, ses identités et dilemmes face à sa place dans une société en perpétuelle changement, son travail se caractérise par un jeu permanent entre language oral, écrit et dessiné, repertoire journalier compulsif d'analogie sur les mouvements du monde, à la manière d'un polymathe à l'ère du numérique.<br><br>Partant du dessin et de l'écriture, sa pratique artistique s'étend à la peinture, la vidéo, la performance et la musique.<br><br>Le travail de Mehdi Besnainou a fait l'objet d'exposition de peinture, de performance, de concerts, de projection vidéo ou de carte blanche mêlant différents mediums dans des centres d'arts internationaux tels que le Palais de Tokyo, le palais de Chaillot ou encore la Villette. Récemment son travail a été visible au centre d'art le 19M, à la galerie Fille du Calvaire ou au musée de la chasse et de la nature.",
+        instagram: "https://www.instagram.com/mehdi_besnainou/",
+        images: [
+            { src: "img/Mehdi-Besnainou_1.avif", caption: "2024" },
+            { src: "img/Mehdi-Besnainou_2.avif", caption: "Fièvre jaune, 2024" },
+            { src: "img/Mehdi-Besnainou_3.avif", caption: "Four monkeys, 2023" },
+            { src: "img/Mehdi-Besnainou_4.avif", caption: "19M, 2024" },
+            { src: "img/Mehdi-Besnainou_5.avif", caption: "2024" },
+            { src: "img/Mehdi-Besnainou_6.avif", caption: "Palais de Tokyo, 2024" }
+        ]
+    },
+
     "Laure Tiberghien": {
         text: "Le travail de Laure Tiberghien s’inscrit dans un courant d’expérimentation que l’on peut faire remonter au début de l’histoire de la photographie mais il ne procède en rien d’une quelconque fascination technologique. L’image obtenue sans appareil, par la conjugaison de la chimie, de la lumière et du temps, est un révélateur du monde matériel, mettant ici en lumière l’épiderme des choses, non leur peau visible mais leur surface sensible. Avec ses images, Laure Tiberghien capte les transformations du visible dont elle nous donne à comprendre le mouvement et les altérations. Chacune de ses pièces est l’objet d’une savante composition où les couleurs sont agencées après avoir été auparavant testées et disposées comme sur une palette pour obtenir les rapports de tons souhaités. Toutes ces opérations qui mènent à des pièces forcément uniques, supposent un long travail en chambre noire, l’usage de filtres et la mise en place de dispositifs qui n’ont rien de mécanique et permettent d’obtenir une image maîtrisée tout en laissant la place à l’accident et au hasard.<br><br>Gilles A. Tiberghien",
         website: "https://lauretiberghien.com/",
