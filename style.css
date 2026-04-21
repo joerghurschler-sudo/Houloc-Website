@@ -479,7 +479,7 @@
         }
 
         .socials img:hover, .google-maps img:hover, .mail img:hover  {
-            transform: translate(10px, 10px); /* Same as parent box */
+            transform: scale(1.15);
         }
 
         #bientot-tag {
@@ -1555,9 +1555,22 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 /* --- RESPONSIVE DESIGN FIX --- */
 
 @media screen and (max-width: 1024px) {
-    /* Verhindert, dass man die Seite nach links/rechts schieben kann */
+    /* Disable hover movements on mobile - no box movement */
+    #box-top:hover, #box-mid:hover, #box-bottom:hover,
+    #event-box:hover, #green-dots:hover, #bientot-tag:hover,
+    #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
+    #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
+    #box-top-artistes:hover, #box-mid-artistes:hover, #box-bottom-artistes:hover,
+    #green-dots-artistes:hover, #info-socials:hover, #info-socials-info:hover,
+    #box-bottom-info:hover, #box-bottom-info-info:hover, #box-bottom-info-archive:hover,
+    .shape:hover, .green-shape:hover, #artist-container:hover {
+        transform: none !important;
+    }
+
+    /* Erlaubt vertikales Scrollen auf Mobile */
     body, html {
         overflow-x: hidden;
+        overflow-y: auto;
         position: relative;
     }
 
@@ -1675,21 +1688,23 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         padding: 15px !important;
     }
 
+    /* Navigation Info - Keep on ONE line */
     #info-menu ul {
         display: flex;
-        flex-direction: row; /* Nebeneinander statt untereinander spart Platz */
+        flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap; /* Falls es zu eng wird, bricht es in die nächste Zeile */
-        gap: 15px;
+        flex-wrap: nowrap;
+        gap: 8px;
         padding: 0;
         margin: 0;
         list-style: none;
+        overflow-x: auto;
     }
 
     #info-menu li a {
-        font-size: 1rem !important; /* Deutlich kleiner, damit es nicht übersteht */
+        font-size: 0.8rem !important;
         text-transform: uppercase;
-        white-space: nowrap; /* Verhindert hässliche Zeilenumbrüche im Wort */
+        white-space: nowrap;
     }
 
     /* 3. FIX: SCHRIFT IN DER HAUPT-NAV (Popup-Links) */
@@ -1713,7 +1728,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
 /* --- RESPONSIVE INDEX-PAGE --- */
 @media screen and (max-width: 1024px) {
-    
+    /* Disable hover movements on mobile - no box movement */
+    #box-top:hover, #box-mid:hover, #box-bottom:hover,
+    #event-box:hover, #green-dots:hover, #bientot-tag:hover,
+    #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
+    #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
+    #box-top-artistes:hover, #box-mid-artistes:hover, #box-bottom-artistes:hover,
+    #green-dots-artistes:hover, #info-socials:hover, #info-socials-info:hover,
+    #box-bottom-info:hover, #box-bottom-info-info:hover, #box-bottom-info-archive:hover,
+    .shape:hover, .green-shape:hover, #artist-container:hover {
+        transform: none !important;
+    }
+
     .page-wrapper {
         display: flex;
         flex-direction: column;
@@ -1751,17 +1777,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 1.5rem !important;
     }
 
-    /* NAVIGATION (Artistes, Archives, Infos) */
+    /* NAVIGATION (Artistes, Archives, Infos) - Keep on ONE line */
     #box-mid ul {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 15px;
+        gap: 8px;
         padding: 0;
+        overflow-x: auto;
     }
 
     #box-mid li a {
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
     /* FOOTER / ADRESSE */
@@ -1784,9 +1811,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
 /* --- RESPONSIVE ARCHIVES --- */
 @media screen and (max-width: 1024px) {
-    
-    
-    
+    /* Disable hover movements on mobile - no box movement */
+    #box-top:hover, #box-mid:hover, #box-bottom:hover,
+    #event-box:hover, #green-dots:hover, #bientot-tag:hover,
+    #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
+    #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
+    #box-top-artistes:hover, #box-mid-artistes:hover, #box-bottom-artistes:hover,
+    #green-dots-artistes:hover, #info-socials:hover, #info-socials-info:hover,
+    #box-bottom-info:hover, #box-bottom-info-info:hover, #box-bottom-info-archive:hover,
+    .shape:hover, .green-shape:hover, #artist-container:hover {
+        transform: none !important;
+    }
+
     #archive-main {
         width: 100% !important;
         margin: 0 !important; /* Entfernt eventuelle linke/rechte Abstände */
@@ -1862,17 +1898,19 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         border-bottom: 1px dashed #ccc;
     }
 
-    /* Navigation Archives */
+    /* Navigation Archives - Keep on ONE line */
     #archive-menu ul {
         display: flex;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 15px;
+        gap: 8px;
         padding: 0;
         list-style: none;
+        overflow-x: auto;
     }
 
     #archive-menu a {
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
     /* Overlay / Popup für Archiv-Details */
@@ -1928,7 +1966,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
 @media screen and (max-width: 1024px) {
-    
+    /* Disable hover movements on mobile - no box movement */
+    #box-top:hover, #box-mid:hover, #box-bottom:hover,
+    #event-box:hover, #green-dots:hover, #bientot-tag:hover,
+    #box-top-info:hover, #info-menu:hover, .info-nav-box:hover,
+    #box-top-archives:hover, #archive-menu:hover, #archive-socials:hover,
+    #box-top-artistes:hover, #box-mid-artistes:hover, #box-bottom-artistes:hover,
+    #green-dots-artistes:hover, #info-socials:hover, #info-socials-info:hover,
+    #box-bottom-info:hover, #box-bottom-info-info:hover, #box-bottom-info-archive:hover,
+    .shape:hover, .green-shape:hover, #artist-container:hover {
+        transform: none !important;
+    }
+
     /* 1. Sidebar verstecken/umwandeln */
     .artist-sidebar, .sidebar-handle {
         display: none !important; /* Wir blenden die schwebende Sidebar aus */
@@ -1994,23 +2043,22 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     }
 
 
-#box-mid-artistes ul {
+    /* Navigation Artistes - Keep on ONE line */
+    #box-mid-artistes ul {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         padding: 0;
         margin: 0;
         list-style: none;
+        overflow-x: auto;
     }
 
     #box-mid-artistes li a {
-        /* Nutzt die Clamp-Logik für perfekte Größe auf Mobile */
-        font-size: clamp(0.9rem, 4vw, 1rem) !important;
+        font-size: 0.8rem !important;
         text-transform: uppercase;
-       
         white-space: nowrap;
-        
     }
     
     #artist-container {
