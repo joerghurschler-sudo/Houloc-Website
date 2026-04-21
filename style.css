@@ -1595,19 +1595,12 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         box-sizing: border-box !important;
     }
 
-    /* Die Blöcke für Maps und Mail einzeln */
+    /* Die Blöcke für Maps und Mail - wie Socials nebeneinander */
     .google-maps, .mail {
-        display: flex !important;
-        flex-direction: column !important; /* Icon über dem Text */
+        display: inline-flex !important;
+        flex-direction: row !important; /* Icons nebeneinander wie Socials */
         align-items: center !important;
-        flex: 0 !important; /* Keine fixe Breite */
-        min-width: 0; /* Verhindert das Rausquetschen bei langen Mail-Adressen */
-        gap: 0 !important; /* Icons direkt nebeneinander */
-        padding: 0 15px !important; /* Etwas Padding für Touch-Ziel */
-    }
-
-    .google-maps, .mail {
-        justify-content: center !important;
+        gap: 1.2rem !important; /* Gleicher Abstand wie Socials */
     }
 
     /* Icons verkleinern, damit sie nebeneinander Platz haben */
