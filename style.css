@@ -1742,7 +1742,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
     /* Footer: Hide text, keep only icons on mobile */
     #box-bottom .google-maps p,
-    #box-bottom .mail a[href^="mailto"] {
+    #box-bottom .mail a:not(:has(img)) {
         display: none !important;
     }
 
