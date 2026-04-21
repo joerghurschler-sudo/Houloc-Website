@@ -1804,22 +1804,21 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 0.8rem !important;
     }
 
-    /* FOOTER / ADRESSE - Icons zentriert und nah beieinander */
+    /* FOOTER MOBILE - Icons vertikal stapeln */
     .footer-info {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        gap: 5px;
+        justify-content: center;
+        gap: 20px;
         font-size: 0.9rem;
     }
 
     .google-maps, .mail {
-        display: inline-flex;
-        flex-direction: row;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+        gap: 5px;
         text-align: center;
     }
 
@@ -2153,48 +2152,48 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
+/* Info Popup Close Button Hover */
 .info-close-button:hover {
     transform: scale(1.1);
     background: var(--red-accent);
     color: white;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: /* Info Popup Navigation Buttons - prev/next */
-// DISABLED: .info-prev,
-// DISABLED: .info-next {
-// DISABLED:     position: absolute;
-// DISABLED:     top: 50%;
-// DISABLED:     transform: translateY(-50%);
-// DISABLED:     cursor: pointer;
-// DISABLED:     font-size: 2.5rem;
-// DISABLED:     font-weight: bold;
-// DISABLED:     width: 50px;
-// DISABLED:     height: 50px;
-// DISABLED:     background: white;
-// DISABLED:     border: 3px solid black;
-// DISABLED:     border-radius: 12px;
-// DISABLED:     display: flex;
-// DISABLED:     align-items: center;
-// DISABLED:     justify-content: center;
-// DISABLED:     z-index: 2100;
-// DISABLED:     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-prev {
-// DISABLED:     left: -70px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-next {
-// DISABLED:     right: -70px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-prev:hover,
-// DISABLED: .info-next:hover {
-// DISABLED:     transform: translateY(-50%) scale(1.1);
-// DISABLED:     background: var(--blue-bg);
-// DISABLED:     color: white;
-// DISABLED: }
+}
 
+/* Info Popup Navigation Buttons - prev/next */
+.info-prev,
+.info-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 3px solid black;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.info-prev {
+    left: -70px;
+}
+
+.info-next {
+    right: -70px;
+}
+
+.info-prev:hover,
+.info-next:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: var(--blue-bg);
+    color: white;
+}
 /* Info overlay active state */
 #info-overlay.active {
     display: flex;
