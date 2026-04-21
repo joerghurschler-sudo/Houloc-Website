@@ -1,4 +1,4 @@
-// Auf 'true' setzen, wenn News da sind, auf 'false', wenn keine News da sind.
+    // Auf 'true' setzen, wenn News da sind, auf 'false', wenn keine News da sind.
 const showNews = true;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,6 +16,7 @@ let currentArtistImgIndex = 0;
 
 let currentGalleryImages = [];
 let currentImgIndex = 0;
+let currentArchiveId = null; // Track current archive/performance ID
 
 
 
@@ -579,14 +580,20 @@ function openArtist(name) {
     const firstImageData = data.images[0] || null;
     const otherImagesData = data.images.slice(1);
 
-    // Künstlerliste für Navigation
-    const artistNames = Object.keys(artistData);
+    // Künstlerliste für Navigation (alphabetisch sortiert)
+    const artistNames = Object.keys(artistData).sort((a, b) => a.localeCompare(b, 'fr'));
     const currentIndex = artistNames.indexOf(name);
     const prevArtist = currentIndex > 0 ? artistNames[currentIndex - 1] : artistNames[artistNames.length - 1];
     const nextArtist = currentIndex < artistNames.length - 1 ? artistNames[currentIndex + 1] : artistNames[0];
 
-    // Äußere Navigationspfeile erstellen
-    createArtistNavArrows(prevArtist, nextArtist);
+    // Update navigation button click handlers
+    const prevBtn = document.querySelector('.artist-prev');
+    const nextBtn = document.querySelector('.artist-next');
+    if (prevBtn) prevBtn.onclick = () => openArtist(prevArtist);
+    if (nextBtn) nextBtn.onclick = () => openArtist(nextArtist);
+    
+    // Set up currentArtistImages for the lightbox
+    currentArtistImages = data.images || [];
 
     container.innerHTML = `
         <h1 style="text-transform: uppercase; font-size: clamp(2.5rem, 6vw, 4rem); margin: 0 0 25px 0; line-height: 1;">
@@ -702,7 +709,7 @@ ${
         </div>
     `;
 
-    overlay.style.display = "flex";
+    overlay.classList.add("active"); document.body.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     setTimeout(() => {
@@ -713,11 +720,38 @@ ${
 }
 
 function closeOverlay() {
-    document.getElementById("artist-overlay").style.display = "none";
-    document.body.style.overflow = "auto";
-    // Äußere Pfeile entfernen
-    removeArtistNavArrows();
+    document.getElementById("artist-overlay").classList.remove("active"); document.body.style.overflow = "auto"; // Fixed to use class;
 }
+
+// Keyboard navigation for Artist popup
+let currentArtistName = "";
+
+document.addEventListener("keydown", (e) => {
+    const artistOverlay = document.getElementById("artist-overlay");
+    const lightboxActive = document.getElementById("lightbox-overlay")?.style.display === "flex";
+    
+    // Check if artist overlay is visible
+    if (!artistOverlay.classList.contains("active")) return;
+    
+    if (e.key === "Escape") {
+        if (lightboxActive) {
+            closeLightbox();
+        } else {
+            closeOverlay();
+        }
+        return;
+    }
+    
+    // Only allow artist popup navigation if lightbox is NOT active
+    if (!lightboxActive) {
+        if (e.key === "ArrowRight") {
+            document.querySelector('.artist-next')?.click();
+        }
+        if (e.key === "ArrowLeft") {
+            document.querySelector('.artist-prev')?.click();
+        }
+    }
+});
 
 // Äußere Navigationspfeile für Artist-Pop-up erstellen
 function createArtistNavArrows(prevArtist, nextArtist) {
@@ -781,10 +815,38 @@ function removeArchiveNavArrows() {
 
 document.addEventListener("click", (e) => {
     const overlay = document.getElementById("artist-overlay");
-    const closeBox = document.querySelector(".close-box");
+    const closeBox = document.querySelector(".artist-close-button");
 
     if (e.target === overlay || e.target === closeBox) {
         closeOverlay();
+    }
+    
+    // Artist navigation buttons
+    const artistCloseBtn = e.target.closest('.artist-close-button');
+    if (artistCloseBtn) {
+        closeOverlay();
+    }
+    
+    // Get current artist from the overlay to determine prev/next
+    const artistOverlay = document.getElementById("artist-overlay");
+    if (artistOverlay.classList.contains("active")) {
+        const artistName = document.querySelector("#overlay-data h1")?.textContent?.trim();
+        if (artistName) {
+            const artistNames = Object.keys(artistData);
+            const currentIndex = artistNames.indexOf(artistName);
+            
+            // Check if prev button was clicked
+            if (e.target.closest('.artist-prev')) {
+                const prevArtist = currentIndex > 0 ? artistNames[currentIndex - 1] : artistNames[artistNames.length - 1];
+                openArtist(prevArtist);
+            }
+            
+            // Check if next button was clicked
+            if (e.target.closest('.artist-next')) {
+                const nextArtist = currentIndex < artistNames.length - 1 ? artistNames[currentIndex + 1] : artistNames[0];
+                openArtist(nextArtist);
+            }
+        }
     }
 
     const infoOverlay = document.getElementById("info-overlay");
@@ -855,6 +917,41 @@ function showFullImage(src) {
     lb.style.display = "flex";
 }
 
+// Artist Lightbox Functions
+function closeLightbox() {
+    document.getElementById("lightbox-overlay").style.display = "none";
+}
+
+function prevLightboxImage() {
+    if (currentArtistImages.length === 0) return;
+    currentArtistImgIndex = (currentArtistImgIndex - 1 + currentArtistImages.length) % currentArtistImages.length;
+    const imgData = currentArtistImages[currentArtistImgIndex];
+    document.getElementById("lightbox-img").src = imgData.src;
+}
+
+function nextLightboxImage() {
+    if (currentArtistImages.length === 0) return;
+    currentArtistImgIndex = (currentArtistImgIndex + 1) % currentArtistImages.length;
+    const imgData = currentArtistImages[currentArtistImgIndex];
+    document.getElementById("lightbox-img").src = imgData.src;
+}
+
+// Keyboard navigation for Artist Lightbox
+document.addEventListener("keydown", (e) => {
+    const lb = document.getElementById("lightbox-overlay");
+    if (lb.style.display !== "flex") return;
+    
+    if (e.key === "Escape") {
+        closeLightbox();
+    }
+    if (e.key === "ArrowRight") {
+        nextLightboxImage();
+    }
+    if (e.key === "ArrowLeft") {
+        prevLightboxImage();
+    }
+});
+
 // 1. Event-Datenbank
 const eventData = {
     title: "NUIT BLANCHE",
@@ -905,7 +1002,7 @@ function openEvent() {
             <div style="width: 60px; height: 3px; background: black;"></div>
         </div>
     `;
-    overlay.style.display = "block"; // 'block' ist hier oft sicherer als 'flex'
+    overlay.classList.add("active");
     document.body.style.overflow = "hidden";
 
     // Scroll-Fix analog zu Artist
@@ -918,10 +1015,22 @@ function openEvent() {
 document.addEventListener("click", (e) => {
     const overlay = document.getElementById("event-overlay");
     const closeBox = e.target.closest(".close-event-box");
+    const artistCloseBtn = e.target.closest('.artist-close-button');
 
-    if (e.target === overlay || closeBox) {
-        overlay.style.display = "none";
+    if (e.target === overlay || closeBox || artistCloseBtn) {
+        overlay.classList.remove("active");
         document.body.style.overflow = "auto";
+    }
+});
+
+// ESC-Taste schließt das Event-Pop-up
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const overlay = document.getElementById("event-overlay");
+        if (overlay && overlay.classList.contains("active")) {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
     }
 });
 
@@ -1700,6 +1809,9 @@ function openArchivePopup(id) {
     const data = archiveData[id] || performanceData[id];
     if (!data) return;
     
+    // Track current archive ID for navigation
+    currentArchiveId = id;
+    
     currentGalleryImages = data.images || [];
 
     const overlay = document.getElementById("archive-overlay");
@@ -1714,8 +1826,6 @@ function openArchivePopup(id) {
     const prevId = currentIndex > 0 ? allIds[currentIndex - 1] : allIds[allIds.length - 1];
     const nextId = currentIndex < allIds.length - 1 ? allIds[currentIndex + 1] : allIds[0];
 
-    // Äußere Navigationspfeile erstellen
-    createArchiveNavArrows(prevId, nextId);
     
     target.innerHTML = `
         <div class="archive-inner-layout">
@@ -1727,9 +1837,10 @@ function openArchivePopup(id) {
               <p style="color: #0047ff; font-size:1rem; font-weight: bold; margin-top: 20px; margin-bottom: 35px;">${data.info}</p>
             
             ${data.flyer ? `
-                <div class="archive-flyer-container" style="margin-bottom: 30px;">
+                <div class="archive-flyer-container" style="margin-bottom: 30px; cursor: zoom-in;">
                     <img src="${data.flyer}" alt="Flyer ${data.title}" 
-                         style="width: 100%; max-height: 600px; object-fit: contain;">
+                         style="width: 100%; max-height: 600px; object-fit: contain;"
+                         onclick="openLightboxArchive(0)">
                 </div>
             ` : ''}
           
@@ -1864,18 +1975,60 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn.addEventListener("click", () => {
             archiveOverlay.classList.remove("active");
             document.body.style.overflow = "auto";
-            // Äußere Pfeile entfernen
-            removeArchiveNavArrows();
         });
         archiveOverlay.addEventListener("click", (e) => {
             if (e.target === archiveOverlay) {
                 archiveOverlay.classList.remove("active");
                 document.body.style.overflow = "auto";
-                // Äußere Pfeile entfernen
-                removeArchiveNavArrows();
             }
         });
     }
+
+    // --- NEUE NAVIGATIONSPFEILE IM POPUP (IN HTML) ---
+    document.querySelector('.archive-prev')?.addEventListener('click', () => {
+        const allIds = [...Object.keys(archiveData), ...Object.keys(performanceData)];
+        const currentIndex = allIds.indexOf(currentArchiveId);
+        const prevId = currentIndex > 0 ? allIds[currentIndex - 1] : allIds[allIds.length - 1];
+        openArchivePopup(prevId);
+    });
+
+    document.querySelector('.archive-next')?.addEventListener('click', () => {
+        const allIds = [...Object.keys(archiveData), ...Object.keys(performanceData)];
+        const currentIndex = allIds.indexOf(currentArchiveId);
+        const nextId = currentIndex < allIds.length - 1 ? allIds[currentIndex + 1] : allIds[0];
+        openArchivePopup(nextId);
+    });
+
+    // --- KEYBOARD NAVIGATION FÜR ARCHIV POPUP ---
+    document.addEventListener('keydown', (e) => {
+        // Only process archive popup navigation if lightbox is NOT active
+        const lightboxActive = document.getElementById('lightbox-archive-overlay')?.classList.contains('active');
+        
+        if (!archiveOverlay.classList.contains('active')) return;
+
+        if (e.key === "Escape") {
+            if (lightboxActive) {
+                // Close lightbox first
+                document.getElementById('lightbox-archive-overlay').classList.remove('active');
+            } else {
+                // Close archive popup
+                archiveOverlay.classList.remove("active");
+                document.body.style.overflow = "auto";
+                removeArchiveNavArrows();
+            }
+            return;
+        }
+        
+        // Only allow archive navigation if lightbox is not active
+        if (!lightboxActive) {
+            if (e.key === "ArrowRight") {
+                document.querySelector('.archive-next')?.click();
+            }
+            if (e.key === "ArrowLeft") {
+                document.querySelector('.archive-prev')?.click();
+            }
+        }
+    });
 });
 
 // 1. Die Funktion zum Befüllen der Lightbox
@@ -2243,20 +2396,20 @@ function openInfoPopup(id) {
     const nextId = currentIndex < infoKeys.length - 1 ? infoKeys[currentIndex + 1] : infoKeys[0];
 
     // Äußere Navigationspfeile erstellen
-    createInfoNavArrows(prevId, nextId);
+    // createInfoNavArrows disabled - using HTML buttons instead
 
     target.innerHTML = `
         <h1 style="font-size: 3rem; margin-bottom: 20px;">${data.title}</h1>
         <hr style="border: 2px solid black; margin-bottom: 30px;">
         <div>${data.content}</div>
     `;
-    overlay.style.display = "flex";
+    overlay.classList.add("active"); document.body.style.overflow = "hidden";
 }
 
 function closeInfoOverlay() {
-    document.getElementById("info-overlay").style.display = "none";
+    document.getElementById("info-overlay").classList.remove("active"); document.body.style.overflow = "auto";
     // Äußere Pfeile entfernen
-    removeInfoNavArrows();
+    // removeInfoNavArrows disabled - using HTML buttons instead
 }
 
 // Äußere Navigationspfeile für Info-Pop-up erstellen
@@ -2288,3 +2441,83 @@ function removeInfoNavArrows() {
     const existingArrows = document.querySelectorAll('.info-nav-arrow');
     existingArrows.forEach(arrow => arrow.remove());
 }
+
+// Info Popup - Click Handlers and Keyboard Navigation
+document.addEventListener("DOMContentLoaded", () => {
+    // Close button click handler
+    const closeBtn = document.querySelector('.info-close-button');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeInfoOverlay);
+    }
+    
+    // Prev/Next button click handlers
+    const prevBtn = document.querySelector('.info-prev');
+    const nextBtn = document.querySelector('.info-next');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const infoKeys = Object.keys(infoData);
+            const currentTarget = document.querySelector("#info-content-target h1");
+            if (currentTarget) {
+                const currentTitle = currentTarget.textContent;
+                let currentIndex = -1;
+                for (let i = 0; i < infoKeys.length; i++) {
+                    if (infoData[infoKeys[i]].title === currentTitle) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+                if (currentIndex > 0) {
+                    openInfoPopup(infoKeys[currentIndex - 1]);
+                } else {
+                    openInfoPopup(infoKeys[infoKeys.length - 1]);
+                }
+            }
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const infoKeys = Object.keys(infoData);
+            const currentTarget = document.querySelector("#info-content-target h1");
+            if (currentTarget) {
+                const currentTitle = currentTarget.textContent;
+                let currentIndex = -1;
+                for (let i = 0; i < infoKeys.length; i++) {
+                    if (infoData[infoKeys[i]].title === currentTitle) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+                if (currentIndex < infoKeys.length - 1) {
+                    openInfoPopup(infoKeys[currentIndex + 1]);
+                } else {
+                    openInfoPopup(infoKeys[0]);
+                }
+            }
+        });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        const overlay = document.getElementById('info-overlay');
+        if (!overlay.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeInfoOverlay();
+        }
+        if (e.key === 'ArrowLeft') {
+            document.querySelector('.info-prev')?.click();
+        }
+        if (e.key === 'ArrowRight') {
+            document.querySelector('.info-next')?.click();
+        }
+    });
+    
+    // Click on overlay background to close
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            closeInfoOverlay();
+        }
+    });
+});
