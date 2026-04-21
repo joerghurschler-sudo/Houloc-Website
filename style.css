@@ -1600,9 +1600,14 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         display: flex !important;
         flex-direction: column !important; /* Icon über dem Text */
         align-items: center !important;
-        flex: 1; /* Gibt beiden 50% der Breite */
+        flex: 0 !important; /* Keine fixe Breite */
         min-width: 0; /* Verhindert das Rausquetschen bei langen Mail-Adressen */
-        gap: 5px !important; /* Icons näher zusammen */
+        gap: 0 !important; /* Icons direkt nebeneinander */
+        padding: 0 15px !important; /* Etwas Padding für Touch-Ziel */
+    }
+
+    .google-maps, .mail {
+        justify-content: center !important;
     }
 
     /* Icons verkleinern, damit sie nebeneinander Platz haben */
