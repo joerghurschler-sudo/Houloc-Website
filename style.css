@@ -1763,7 +1763,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         display: flex;
         flex-direction: column;
         padding: 20px 15px;
-        gap: 20px !important; /* Engerer Abstand zwischen den Boxen */
+        gap: 5px !important; /* Engerer Abstand zwischen den Boxen */
         min-height: auto;
     }
 
@@ -1779,10 +1779,10 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
     /* FESTGELEGTE REIHENFOLGE */
     
-    #box-top       { order: 1; }
-    #box-mid       { order: 4; }
-    #bientot-tag   { order: 2; width: fit-content !important; align-self: center; padding: 10px 20px; }
-    #event-box     { order: 3; padding: 30px 20px; }
+    #box-top       { order: 1; padding-bottom: 0; }
+    #box-mid       { order: 2; }
+    #bientot-tag   { order: 3; width: fit-content !important; align-self: center; padding: 10px 20px; }
+    #event-box     { order: 4; padding: 30px 20px; }
     #box-bottom    { order: 5; }
     #green-dots    { order: 6; padding: 20px; display: none; }
 
