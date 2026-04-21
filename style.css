@@ -1602,6 +1602,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         align-items: center !important;
         flex: 1; /* Gibt beiden 50% der Breite */
         min-width: 0; /* Verhindert das Rausquetschen bei langen Mail-Adressen */
+        gap: 5px !important; /* Icons näher zusammen */
     }
 
     /* Icons verkleinern, damit sie nebeneinander Platz haben */
@@ -1610,7 +1611,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #box-bottom-artistes img {
         width: 30px !important; 
         height: auto !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 0 !important;
     }
 
     /* Text anpassen */
