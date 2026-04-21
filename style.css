@@ -1745,6 +1745,14 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         display: none !important;
     }
 
+    /* Footer mobile: Icons inline wie Socials */
+    #box-bottom .google-maps > a,
+    #box-bottom .mail > a {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
     .page-wrapper {
         display: flex;
         flex-direction: column;
