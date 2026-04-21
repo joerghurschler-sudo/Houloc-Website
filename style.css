@@ -1804,13 +1804,13 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 0.8rem !important;
     }
 
-    /* FOOTER / ADRESSE - Icons wie Socials nebeneinander */
+    /* FOOTER / ADRESSE - Icons zentriert und nah beieinander */
     .footer-info {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
         font-size: 0.9rem;
     }
 
@@ -1819,7 +1819,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 1.2rem;
+        gap: 0.5rem;
         text-align: center;
     }
 
