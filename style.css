@@ -445,10 +445,10 @@
 
         .google-maps, .mail {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
+            text-align: center;
+            gap: 0.5rem;
             margin: 0;
         }
 
@@ -1595,12 +1595,13 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         box-sizing: border-box !important;
     }
 
-    /* Die Blöcke für Maps und Mail - wie Socials nebeneinander */
+    /* Die Blöcke für Maps und Mail einzeln */
     .google-maps, .mail {
-        display: inline-flex !important;
-        flex-direction: row !important; /* Icons nebeneinander wie Socials */
+        display: flex !important;
+        flex-direction: column !important; /* Icon über dem Text */
         align-items: center !important;
-        gap: 1.2rem !important; /* Gleicher Abstand wie Socials */
+        flex: 1; /* Gibt beiden 50% der Breite */
+        min-width: 0; /* Verhindert das Rausquetschen bei langen Mail-Adressen */
     }
 
     /* Icons verkleinern, damit sie nebeneinander Platz haben */
@@ -1609,7 +1610,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #box-bottom-artistes img {
         width: 30px !important; 
         height: auto !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 5px !important;
     }
 
     /* Text anpassen */
@@ -1723,6 +1724,13 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     .socials img {
         width: 35px;
     }
+    
+    /* Smaller social media icons (Instagram/Facebook) on mobile */
+    .socials img[src*="instagram"],
+    .socials img[src*="facebook"] {
+        width: 22px !important;
+    }
+    }
 }
 
 /* --- RESPONSIVE INDEX-PAGE --- */
@@ -1743,14 +1751,6 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #box-bottom .google-maps p,
     #box-bottom .mail a:not(:has(img)) {
         display: none !important;
-    }
-
-    /* Footer mobile: Icons inline wie Socials */
-    #box-bottom .google-maps > a,
-    #box-bottom .mail > a {
-        display: inline-flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
     }
 
     .page-wrapper {
@@ -1804,21 +1804,15 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 0.8rem !important;
     }
 
-    /* FOOTER MOBILE - Icons vertikal stapeln */
+    /* FOOTER / ADRESSE */
     .footer-info {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 20px;
         font-size: 0.9rem;
     }
 
     .google-maps, .mail {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 5px;
         text-align: center;
     }
 
@@ -2152,48 +2146,48 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-/* Info Popup Close Button Hover */
 .info-close-button:hover {
     transform: scale(1.1);
     background: var(--red-accent);
     color: white;
-}
+// DISABLED: }
+// DISABLED: 
+// DISABLED: /* Info Popup Navigation Buttons - prev/next */
+// DISABLED: .info-prev,
+// DISABLED: .info-next {
+// DISABLED:     position: absolute;
+// DISABLED:     top: 50%;
+// DISABLED:     transform: translateY(-50%);
+// DISABLED:     cursor: pointer;
+// DISABLED:     font-size: 2.5rem;
+// DISABLED:     font-weight: bold;
+// DISABLED:     width: 50px;
+// DISABLED:     height: 50px;
+// DISABLED:     background: white;
+// DISABLED:     border: 3px solid black;
+// DISABLED:     border-radius: 12px;
+// DISABLED:     display: flex;
+// DISABLED:     align-items: center;
+// DISABLED:     justify-content: center;
+// DISABLED:     z-index: 2100;
+// DISABLED:     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+// DISABLED: }
+// DISABLED: 
+// DISABLED: .info-prev {
+// DISABLED:     left: -70px;
+// DISABLED: }
+// DISABLED: 
+// DISABLED: .info-next {
+// DISABLED:     right: -70px;
+// DISABLED: }
+// DISABLED: 
+// DISABLED: .info-prev:hover,
+// DISABLED: .info-next:hover {
+// DISABLED:     transform: translateY(-50%) scale(1.1);
+// DISABLED:     background: var(--blue-bg);
+// DISABLED:     color: white;
+// DISABLED: }
 
-/* Info Popup Navigation Buttons - prev/next */
-.info-prev,
-.info-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 2.5rem;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
-    background: white;
-    border: 3px solid black;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2100;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.info-prev {
-    left: -70px;
-}
-
-.info-next {
-    right: -70px;
-}
-
-.info-prev:hover,
-.info-next:hover {
-    transform: translateY(-50%) scale(1.1);
-    background: var(--blue-bg);
-    color: white;
-}
 /* Info overlay active state */
 #info-overlay.active {
     display: flex;
