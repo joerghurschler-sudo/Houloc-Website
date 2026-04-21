@@ -478,8 +478,8 @@ artists.forEach((box) => {
     `;
 
     // PHYSIK
-    box.baseVX = (Math.random() - 0.5) * 0.3;
-    box.baseVY = (Math.random() - 0.5) * 0.3;
+    box.baseVX = (Math.random() - 0.5) * 0.8;
+    box.baseVY = (Math.random() - 0.5) * 0.8;
     box.pushVX = 0;
     box.pushVY = 0;
 

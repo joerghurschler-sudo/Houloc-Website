@@ -476,7 +476,15 @@
         .socials img, .google-maps img, .mail img{
             width: 40px;
             height: 40px;
+            object-fit: contain;
         }
+
+        /* Icon list - hidden by default (Desktop) */
+        .icon-list {
+            display: none;
+        }
+
+        /* Desktop: hide footer-info icons on mobile will be handled in mobile section */
 
         .socials img:hover, .google-maps img:hover, .mail img:hover  {
             transform: scale(1.15);
@@ -874,35 +882,35 @@
 
 
 /* Äußere Navigation Pfeile für Info-Pop-up */
-// DISABLED: .info-nav-arrow {
-// DISABLED:     position: fixed;
-// DISABLED:     top: 50%;
-// DISABLED:     transform: translateY(-50%);
-// DISABLED:     font-size: 3rem;
-// DISABLED:     cursor: pointer;
-// DISABLED:     user-select: none;
-// DISABLED:     color: black;
-// DISABLED:     z-index: 2050;
-// DISABLED:     transition: transform 0.2s ease, opacity 0.2s ease;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-nav-arrow:hover {
-// DISABLED:     transform: translateY(-50%) scale(1.2);
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-nav-arrow.prev {
-// DISABLED:     left: 200px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-nav-arrow.next {
-// DISABLED:     right: 200px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: /* Verstecke Info-Pfeile auf Mobile */
-// DISABLED: @media screen and (max-width: 1024px) {
-// DISABLED:     .info-nav-arrow {
-// DISABLED:         display: none;
-// DISABLED:     }
+.info-nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+    color: black;
+    z-index: 2050;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.info-nav-arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.info-nav-arrow.prev {
+    left: 200px;
+}
+
+.info-nav-arrow.next {
+    right: 200px;
+}
+
+/* Verstecke Info-Pfeile auf Mobile */
+@media screen and (max-width: 1024px) {
+    .info-nav-arrow {
+        display: none;
+    }
 }
 
 /* Das Bild-Overlay (Lightbox) */
@@ -1128,8 +1136,7 @@
 .year-marker:hover {
      color: var(--blue-bg);
     opacity: 1;
-    transform: scale(1.2); /
-    
+    transform: scale(1.2);
 }
 
 .year-marker, .line {
@@ -1579,7 +1586,6 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         padding: 40px 10px; /* Weniger Padding an den Seiten */
     }
     
-    @media screen and (max-width: 1024px) {
     /* Wir sprechen alle möglichen Footer-Container an */
     .footer-info, 
     #box-bottom, 
@@ -1622,7 +1628,6 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         word-break: break-all; /* Bricht extrem lange Mails zur Not um */
         line-height: 1.2;
     }
-}
     
     #box-top-info {
         margin-bottom: 1px; /* Spezieller Extra-Abstand für die letzte Box */
@@ -1720,16 +1725,9 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         margin: 0;
     }
 
-    /* Social Icons Größe */
+    /* Social Icons Größe - 40px (gleich wie Maps/Mail Icons) */
     .socials img {
-        width: 35px;
-    }
-    
-    /* Smaller social media icons (Instagram/Facebook) on mobile */
-    .socials img[src*="instagram"],
-    .socials img[src*="facebook"] {
-        width: 22px !important;
-    }
+        width: 40px !important;
     }
 }
 
@@ -1747,9 +1745,17 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         transform: none !important;
     }
 
-    /* Footer: Hide text, keep only icons on mobile */
+    /* Footer: Hide text, keep only icons on mobile - ALL PAGES */
     #box-bottom .google-maps p,
-    #box-bottom .mail a:not(:has(img)) {
+    #box-bottom .mail a:not(:has(img)),
+    #box-bottom-artistes .google-maps p,
+    #box-bottom-artistes .mail a:not(:has(img)),
+    #box-bottom-info .google-maps p,
+    #box-bottom-info .mail a:not(:has(img)),
+    #box-bottom-info-info .google-maps p,
+    #box-bottom-info-info .mail a:not(:has(img)),
+    #box-bottom-info-archive .google-maps p,
+    #box-bottom-info-archive .mail a:not(:has(img)) {
         display: none !important;
     }
 
@@ -1778,7 +1784,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #bientot-tag   { order: 2; width: fit-content !important; align-self: center; padding: 10px 20px; }
     #event-box     { order: 3; padding: 30px 20px; }
     #box-bottom    { order: 5; }
-    #green-dots    { order: 6; padding: 20px; }
+    #green-dots    { order: 6; padding: 20px; display: none; }
 
     /* SCHRIFTGRÖSSEN INDEX */
     #box-top h1 {
@@ -1804,21 +1810,47 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 0.8rem !important;
     }
 
-    /* FOOTER / ADRESSE */
-    .footer-info {
-        flex-direction: column;
-        gap: 20px;
-        font-size: 0.9rem;
+    /* FOOTER / ADRESSE - Icons zentriert wie Socials */
+    #box-bottom {
+        padding: 20px 10px !important;
     }
 
-    .google-maps, .mail {
-        flex-direction: column;
-        text-align: center;
+    /* Hide original footer-info icons on mobile - ALL PAGES */
+    #box-bottom .footer-info,
+    #box-bottom-info .footer-info,
+    #box-bottom-info-info .footer-info,
+    #box-bottom-info-archive .footer-info {
+        display: none !important;
     }
 
-    /* ICONS */
-    .socials img, .google-maps img, .mail img {
-        width: 40px;
+        /* ICON LIST - 4 icons in a row centered */
+    .icon-list {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 30px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .icon-list a img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* Hide duplicate social icon boxes on mobile */
+    #info-socials,
+    #info-socials-info,
+    #archive-socials {
+        display: none !important;
+    }
+
+    /* Smaller icons for artistes/info/archive footer on mobile */
+    #box-bottom-info .icon-list a img,
+    #box-bottom-info-info .icon-list a img,
+    #box-bottom-info-archive .icon-list a img {
+        width: 30px !important;
+        height: 30px !important;
     }
 }
 
@@ -2089,7 +2121,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     left: auto !important;
     width: 100% !important; /* Nutzt die volle Breite der Grid-Spalte */
     height: auto !important; /* Auto lässt Flexbox die Zentrierung besser berechnen */
-    min-height: px !important; /* Garantiert eine flache, aber klickbare Höhe */
+    min-height: 40px !important; /* Garantiert eine flache, aber klickbare Höhe */
     
     padding: 4px 2px !important;
     font-size: 0.85rem !important; 
@@ -2117,6 +2149,34 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         margin: 0 !important;
         padding: 20px !important;
         overflow: hidden !important;
+    }
+
+    /* Footer Info - Icons zentrieren wie Socials - ALL PAGES */
+    #box-bottom .footer-info,
+    #box-bottom-artistes .footer-info,
+    #box-bottom-info .footer-info,
+    #box-bottom-info-info .footer-info,
+    #box-bottom-info-archive .footer-info {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: row !important;
+        gap: 60px !important;
+    }
+
+    #box-bottom .google-maps, 
+    #box-bottom .mail,
+    #box-bottom-artistes .google-maps,
+    #box-bottom-artistes .mail,
+    #box-bottom-info .google-maps,
+    #box-bottom-info .mail,
+    #box-bottom-info-info .google-maps,
+    #box-bottom-info-info .mail,
+    #box-bottom-info-archive .google-maps,
+    #box-bottom-info-archive .mail {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        flex: 0 !important;
     }
 }
 
@@ -2150,43 +2210,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     transform: scale(1.1);
     background: var(--red-accent);
     color: white;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: /* Info Popup Navigation Buttons - prev/next */
-// DISABLED: .info-prev,
-// DISABLED: .info-next {
-// DISABLED:     position: absolute;
-// DISABLED:     top: 50%;
-// DISABLED:     transform: translateY(-50%);
-// DISABLED:     cursor: pointer;
-// DISABLED:     font-size: 2.5rem;
-// DISABLED:     font-weight: bold;
-// DISABLED:     width: 50px;
-// DISABLED:     height: 50px;
-// DISABLED:     background: white;
-// DISABLED:     border: 3px solid black;
-// DISABLED:     border-radius: 12px;
-// DISABLED:     display: flex;
-// DISABLED:     align-items: center;
-// DISABLED:     justify-content: center;
-// DISABLED:     z-index: 2100;
-// DISABLED:     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-prev {
-// DISABLED:     left: -70px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-next {
-// DISABLED:     right: -70px;
-// DISABLED: }
-// DISABLED: 
-// DISABLED: .info-prev:hover,
-// DISABLED: .info-next:hover {
-// DISABLED:     transform: translateY(-50%) scale(1.1);
-// DISABLED:     background: var(--blue-bg);
-// DISABLED:     color: white;
-// DISABLED: }
+}
 
 /* Info overlay active state */
 #info-overlay.active {
