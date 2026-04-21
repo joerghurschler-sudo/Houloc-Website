@@ -2,7 +2,7 @@
 img/*.jpg
 img/*.jpeg
 img/*.png
-img/*.avif
+#img/*.avif - Disabled to allow tracking avif files
 img/*.webp
 
 # Python cache

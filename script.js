@@ -171,8 +171,8 @@ const artistData = {
         instagram: "https://www.instagram.com/lauretiberghien/",
         images: [
             { src: "", caption: "" },
-            { src: "", caption: "" },
-            { src: "", caption: "" },
+            { src: "img/Laure-Tiberghien_1.avif", caption: "" },
+            { src: "img/Laure-Tiberghien_2.avif", caption: "" },
             { src: "", caption: "" }
         ]
     },
