@@ -445,10 +445,10 @@
 
         .google-maps, .mail {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            text-align: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 1.2rem;
             margin: 0;
         }
 
@@ -1804,15 +1804,22 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         font-size: 0.8rem !important;
     }
 
-    /* FOOTER / ADRESSE */
+    /* FOOTER / ADRESSE - Icons wie Socials nebeneinander */
     .footer-info {
-        flex-direction: column;
-        gap: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 10px;
         font-size: 0.9rem;
     }
 
     .google-maps, .mail {
-        flex-direction: column;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
         text-align: center;
     }
 
