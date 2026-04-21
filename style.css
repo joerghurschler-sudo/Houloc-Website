@@ -479,7 +479,7 @@
         }
 
         .socials img:hover, .google-maps img:hover, .mail img:hover  {
-            transform: scale(1.15);
+            transform: translate(10px, 10px); /* Same as parent box */
         }
 
         #bientot-tag {
