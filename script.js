@@ -353,6 +353,17 @@ const artistData = {
             { src: "img/Elisa-Chaveneau_3.avif", caption: "" },
             { src: "img/Elisa-Chaveneau_4.avif", caption: "" }
         ]
+    },
+
+    "Kevin Rouillard": {
+        text: "Kevin Rouillard crée des installations et des sculptures murales à partir de bidons qu'il aplatit en les martelant, ou de plaques en métal soudées ensemble. Imposantes et austères, ses pièces s'appuient sur la logique du recyclage : il récupère des matériaux destinés à être transformés – bidons, plaques métalliques – pour les classer, les organiser, les soumettre à un procédé qui les amenuise et les soustrait à la circulation des biens. Ce geste de soustraction nous invite à une pause dans la logique de consommation.<br><br>Son choix de matériaux se fait sans hiérarchie : aucune pièce n'est privilégiée par rapport à une autre, toutes deviennent égales et neutres, purifiées de leur contexte. Même les traces accidentelles – fragments de logo ou bouts d'étiquette – perdent leur signification. En dehors de toute narrativité, ses pièces créent une zone de contemplation pure.<br><br>Cette vision résulte d'une indifférence pour l'objet en tant qu'objet. L'œuvre de Kevin résiste à toute catégorisation : ready-made, sculpture, peinture minimaliste ou Color Field ? Elle entre dans un interstice terminologique pour inventer une nouvelle identité : « tôle, choc ».<br><br>Les traces de geste – enfoncements, blessures, cicatrices de soudure – communiquent à ses œuvres un aspect humain, une fragilité qui atténue leur aspect guerrier. L'œuvre devient un xylophone silencieux, une symphonie qui s'écoule dans l'espace.",
+        instagram: "https://www.instagram.com/kevinrouillard/",
+        images: [
+            { src: "img/Kevin-Rouillard_1.avif", caption: "" },
+            { src: "img/Kevin-Rouillard_2.avif", caption: "" },
+            { src: "img/Kevin-Rouillard_3.avif", caption: "" },
+            { src: "img/Kevin-Rouillard_4.avif", caption: "" }
+        ]
     }
 };
 

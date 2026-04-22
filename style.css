@@ -1576,6 +1576,7 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
     /* Erlaubt vertikales Scrollen auf Mobile */
     body, html {
+        height: auto !important;
         overflow-x: hidden;
         overflow-y: auto;
         position: relative;
@@ -1665,11 +1666,16 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
 @media screen and (max-width: 1024px) {
     
+    /* ===========================================
+       MOBILE BOX GAP - INFO
+       Ändere hier den Wert für mehr/weniger Abstand:
+       5px = eng, 15px = mittel, 25px = weit
+       =========================================== */
     .info-page-container {
         display: flex;
         flex-direction: column; 
-        padding: 30px 20px;
-        gap: 15px;
+        padding: 35px 20px;
+        gap: var(--mobile-gap-info, 0px);
     }
 
     /* Alle Boxen auf volle Breite und einheitlichen Stil */
@@ -1685,8 +1691,17 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #box-top-info     { order: 1; }
     #info-menu         { order: 2; }
     .info-nav-box      { order: 3; }
-    #info-socials-info     { order: 4; width: fit-content !important; align-self: center; padding: 20px 40px;  }
+    #info-socials-info     { order: 4; width: fit-content !important; align-self: center; padding: 20px 20px; border-radius: 20px !important; }
     #box-bottom-info-info   { order: 5; width: fit-content !important; align-self: center;  }
+
+    /* ===========================================
+       MOBILE BOX SPACING - INFO
+       =========================================== */
+    #box-top-info              { margin-bottom: 8px !important; }
+    #info-menu                 { margin-bottom: 20px !important; margin-top: -45px !important; }
+    .info-nav-box              { margin-bottom: 0px !important; margin-top: -25px !important; }
+    #info-socials-info         { margin-bottom: 0px !important; margin-top: -0px !important; }
+    #box-bottom-info-info      { margin-top: -40px !important; }
 
     /* 2. FIX: SCHRIFT IM INFO-MENU (Navigation) */
     #info-menu {
@@ -1759,12 +1774,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         display: none !important;
     }
 
+    /* ===========================================
+       MOBILE BOX GAP - INDEX
+       Ändere hier den Wert für mehr/weniger Abstand:
+       5px = eng, 15px = mittel, 25px = weit
+       =========================================== */
     .page-wrapper {
+        min-height: 100dvh !important;
         display: flex;
-        flex-direction: column;
-        padding: 20px 15px;
-        gap: 5px !important; /* Engerer Abstand zwischen den Boxen */
-        min-height: auto;
+        flex-direction: column; 
+        padding: 15px 20px;
+        padding-bottom: 20px !important;
+        gap: var(--mobile-gap-info, 0px);
     }
 
     /* Einheitsstil für Index-Boxen */
@@ -1779,21 +1800,90 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 
     /* FESTGELEGTE REIHENFOLGE */
     
-    #box-top       { order: 1; padding-bottom: 0; }
+    #box-top       { order: 1;  }
     #box-mid       { order: 2; }
     #bientot-tag   { order: 3; width: fit-content !important; align-self: center; padding: 10px 20px; }
-    #event-box     { order: 4; padding: 30px 20px; }
+    #event-box     { order: 4; padding: 20px 20px; }
     #box-bottom    { order: 5; }
     #green-dots    { order: 6; padding: 20px; display: none; }
 
+    /* ===========================================
+       MOBILE BOX SPACING - JUSTIERE HIER
+       =========================================== */
+
+    /* INDEX-PAGE */
+    #box-top           { margin-bottom: 5px !important; }
+    #box-mid           { margin-bottom: -20px !important; margin-top: 0px !important; padding: 15px 10px !important; }
+    #bientot-tag       { margin-top: 1px !important; margin-bottom: 1px !important; }
+    
+    /* Text margin inside #bientot-tag on mobile */
+    #bientot-tag p {
+        margin-top: 1px !important;
+        margin-bottom: 1px !important;
+    }
+    #event-box         { margin-bottom: 0px !important; }
+    #box-bottom        { margin-top: 10px !important; }
+
+    
+
+
+
+    /* NAVBAR SCHRIFTGRÖSSE - INDEX MOBILE */
+    #box-mid ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 0;
+        overflow-x: auto;
+    }
+
+    #box-mid li a {
+        font-size: 1rem !important;
+        
+    }
+
     /* SCHRIFTGRÖSSEN INDEX */
+    #box-top {
+        text-align: center !important;
+    }
+
     #box-top h1 {
         font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
         line-height: 0.9;
+        text-align: center !important;
+    }
+
+    #box-top .subtitle {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 1rem;
+        margin-bottom: 0;
     }
 
     #event-box h2 {
         font-size: 1.5rem !important;
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+    
+    /* Date "06 juin 2026" styling on mobile */
+    #event-box p {
+        font-size: 0.9rem !important;
+        text-align: center;
+        margin-top: -5px;
+        margin-bottom: 12px;
+    }
+    
+    /* "plus d'informations" - smaller, underlined, red on mobile */
+    .morph-text {
+        font-size: 1.2rem !important;
+        text-decoration: underline;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        margin-top: 0;
     }
 
     /* NAVIGATION (Artistes, Archives, Infos) - Keep on ONE line */
@@ -1827,15 +1917,18 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     .icon-list {
         display: flex !important;
         flex-direction: row !important;
-        gap: 30px !important;
+        gap: 20px !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
+        margin-top: 5px !important;  
+    
     }
 
     .icon-list a img {
         width: 40px !important;
         height: 40px !important;
+      
     }
 
     /* Hide duplicate social icon boxes on mobile */
@@ -1880,11 +1973,16 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         box-sizing: border-box;
     }
 
+    /* ===========================================
+       MOBILE BOX GAP - ARCHIVES
+       Ändere hier den Wert für mehr/weniger Abstand:
+       5px = eng, 15px = mittel, 25px = weit
+       =========================================== */
     .page-wrapper {
         display: flex;
         flex-direction: column;
         padding: 20px 15px;
-        gap: 20px !important;
+        gap: var(--mobile-gap-archives, 0px) !important;
     }
 
     /* Boxen-Stil & Reihenfolge */
@@ -1901,6 +1999,15 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #archive-main     { order: 3; height: auto !important; } /* Wichtig für Stapelung */
     #archive-socials  { order: 4; padding: 20px; height: auto !important; }
      #box-bottom-info-archive { order: 5; height: auto !important;  }
+
+    /* ===========================================
+       MOBILE BOX SPACING - ARCHIVES
+       =========================================== */
+    #box-top-archives      { margin-bottom: -50px !important; }
+    #archive-menu          { margin-bottom: 0px !important; margin-top: 0px !important; }
+    #archive-main          { margin-bottom: 0px !important; margin-top: -35px !important; }
+    #archive-socials       { margin-bottom: 15px !important; margin-top: 0px !important; }
+    #box-bottom-info-archive { margin-top: -30px !important; }
 
     /* DIE QUAD-SCROLL-SPALTEN OPTIMIEREN */
     .quad-scroll-container {
@@ -2028,11 +2135,15 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
         display: none !important; /* Wir blenden die schwebende Sidebar aus */
     }
 
-    /* 2. Den Page-Wrapper als Stapel organisieren */
+    /* ===========================================
+       MOBILE BOX GAP - ARTISTES
+       Ändere hier den Wert für mehr/weniger Abstand:
+       5px = eng, 15px = mittel, 25px = weit
+       =========================================== */
     .page-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 20px !important;
+        gap: var(--mobile-gap-artistes, 0px) !important;
         padding: 20px 15px;
     }
 
@@ -2043,6 +2154,15 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
     #green-dots-artistes  { order: 5; }
     #box-bottom-info { order: 4; }
      #info-socials { order: 5; }
+
+    /* ===========================================
+       MOBILE BOX SPACING - ARTISTES
+       =========================================== */
+    #box-top-artistes           { margin-bottom: 0% !important; }
+    #box-mid-artistes           { margin-bottom: 15px !important; margin-top: -30px !important; }
+    #artist-container           { margin-bottom: 15px !important; margin-top: -15px !important; }
+    #green-dots-artistes        { margin-bottom: 15px !important; margin-top: -5px !important; }
+    #box-bottom-info            { margin-top: -10px !important; }
 
     /* 3. ARTIST-CONTAINER: Schluss mit dem Fliegen! */
     #artist-container {
@@ -2277,3 +2397,45 @@ box-shadow: 0 0 50px rgba(0,0,0,0.5);
 .info-next:hover {
     transform: translateY(-50%) scale(1.2) !important;
 }
+
+/* ===========================================
+   MOBILE: Event Popup Text Size
+   =========================================== */
+@media screen and (max-width: 1024px) {
+    /* Event Title - smaller on mobile */
+    #event-inner-content h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Event Info (Date, Location, Vernissage) */
+    #event-inner-content div[style*="font-weight: bold"] {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Event Description text */
+    #event-inner-content div[style*="font-size: 1.2rem"] {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Reduce hr margin on mobile */
+    #event-inner-content hr {
+        margin-bottom: 20px !important;
+    }
+    
+    /* Remove padding-top from container on mobile */
+    #event-inner-content {
+        padding-top: 0 !important;
+    }
+    
+    /* Event close button - fixed position on mobile */
+    .close-event-box {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        z-index: 5001;
+        color: black !important;
+    }
+}
+
+
