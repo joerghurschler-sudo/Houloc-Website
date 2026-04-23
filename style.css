@@ -254,6 +254,10 @@ h1 {
     padding: 0;
 }
 
+#bientot-tag:hover {
+    transform: translateY(-50px) scale(1.03);
+}
+
 /* --- BOX COMPONENTS - ARTISTES --- */
 #box-top-artistes, 
 #box-mid-artistes,
