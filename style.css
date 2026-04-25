@@ -1078,6 +1078,7 @@ nav a:hover {
     right: 0;
     z-index: 5001;
     color: black !important;
+    font-weight: bold;
 }
 
 /* --- NAVIGATION ARROWS --- */
@@ -1498,6 +1499,7 @@ nav a:hover {
     right: 2.5rem;
     font-size: 3rem;
     color: white;
+    font-weight: bold;
     cursor: pointer;
     user-select: none;
     z-index: 5001;
@@ -1534,6 +1536,7 @@ nav a:hover {
     right: 2.5rem;
     font-size: 3rem;
     color: white;
+    font-weight: bold;
     cursor: pointer;
     user-select: none;
     z-index: 5001;
