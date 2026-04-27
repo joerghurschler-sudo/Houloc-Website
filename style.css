@@ -180,7 +180,7 @@ h1 {
         inset 0 0 0 0.1875rem var(--green-accent),
         0 8px 20px rgba(0, 0, 0, 0.12), 
         0 20px 50px rgba(0, 0, 0, 0.15);
-    transform: translateY(+20px);
+   
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
@@ -230,8 +230,8 @@ h1 {
 }
 
 #bientot-tag {
-    grid-column: 8 / 10;
-    grid-row: 4  / 5;
+    grid-column: 8 / 9;
+    grid-row: 5  / 6;
     background: var(--red-accent);
     color: var(--white);
     border-radius: 1.8125rem;
@@ -242,7 +242,8 @@ h1 {
     text-transform: uppercase;
     font-size: 1.5rem;
     z-index: 20;
-    transform: rotate(5 deg) translateY(+20px);
+    transform: rotate(10 deg) tran;
+     transform: translateY(-00px);
 
     box-shadow: 
         inset 0 0 0 4px var(--red-accent),
@@ -982,6 +983,14 @@ nav a:hover {
     overflow-x: hidden;
 }
 
+/* =========================================
+   Archive Artist Name
+   ========================================= */
+.archive-artist-name {
+    font-size: 1.1rem;  /* Erhöhte Schriftgröße für Künstler-/Kuratorennamen */
+    line-height: 1.3;
+}
+
 /* --- CLOSE BUTTONS --- */
 .close-box {
     position: absolute;
@@ -1229,12 +1238,15 @@ nav a:hover {
 }
 
 .morph-text {
-    font-weight: 500;
+    font-weight: 1000;
     font-size: 1.2rem;
     text-decoration: underline;
     color: var(--white);
     display: inline-block;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-style: italic;
+   
 }
 
 .morph-text span {
@@ -2304,6 +2316,11 @@ nav a:hover {
     #archive-content-target > div > div > div[style*="margin-bottom: 12px"] {
         font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
     }
+    
+    /* Bold labels (ARTISTES, COMMISSAIRE) smaller on mobile */
+    #archive-content-target b {
+        font-size: clamp(0.8rem, 2.5vw, 1.1rem) !important;
+    }
 }
 
 /* ===========================================
@@ -3068,6 +3085,124 @@ nav a:hover {
 
     #archive-menu a {
         font-size: 0.7rem !important;
+    }
+}
+
+/* Archive artist names - Media Queries for responsive font sizes */
+.archive-artist-name {
+    line-height: 1.3 !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .archive-artist-name {
+        font-size: 0.9rem;
+        line-height: 1.25 !important;
+    }
+    
+    /* Bold labels smaller on tablet */
+    #archive-content-target b {
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Archive popup text - override inline styles */
+    #archive-content-target > div > div[style*="font-size: 1.2rem"] {
+        font-size: clamp(0.85rem, 3vw, 1.1rem) !important;
+        line-height: 1.5 !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Inner text divs - more spacing */
+    #archive-content-target > div > div > div[style*="margin-bottom: 12px"] {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
+        margin-top: 0.9rem !important;
+        margin-bottom: 0.9rem !important;
+    }
+}
+
+/* ===========================================
+   DESKTOP INFO POPUP CENTERING
+   =========================================== */
+@media screen and (min-width: 1025px) {
+    #info-overlay {
+        align-items: center !important;
+        padding-top: 7.75rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .archive-artist-name {
+        font-size: 0.85rem;
+    }
+    
+    /* Bold labels smaller on tablet */
+    #archive-content-target b {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Archive popup text on tablet */
+    #archive-content-target > div > div[style*="font-size: 1.2rem"] {
+        font-size: clamp(0.8rem, 2.5vw, 1rem) !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Inner text divs - more spacing */
+    #archive-content-target > div > div > div[style*="margin-bottom: 12px"] {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
+        margin-top: 0.9rem !important;
+        margin-bottom: 0.9rem !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .archive-artist-name {
+        font-size: 0.8rem;
+    }
+    
+    /* Bold labels smaller on small mobile */
+    #archive-content-target b {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Archive popup text on small mobile */
+    #archive-content-target > div > div[style*="font-size: 1.2rem"] {
+        font-size: 0.75rem !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Inner text divs - more spacing */
+    #archive-content-target > div > div > div[style*="margin-bottom: 12px"] {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
+        margin-top: 0.9rem !important;
+        margin-bottom: 0.9rem !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .archive-artist-name {
+        font-size: 0.75rem;
+    }
+    
+    /* Bold labels smallest on very small screens */
+    #archive-content-target b {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Small mobile text */
+    #archive-content-target > div > div[style*="font-size: 1.2rem"] {
+        font-size: 0.75rem !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Inner text divs - more spacing */
+    #archive-content-target > div > div > div[style*="margin-bottom: 12px"] {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
+        margin-top: 0.9rem !important;
+        margin-bottom: 0.9rem !important;
     }
 }
 
