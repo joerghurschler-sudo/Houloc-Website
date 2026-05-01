@@ -189,6 +189,10 @@ h1 {
     transform: translateY(-50px) scale(1.03);
 }
 
+#event-box {
+    cursor: pointer;
+}
+
 #event-box h2 {
     font-size: clamp(2rem, 7vw, 4rem);
     margin: 0;
@@ -242,8 +246,8 @@ h1 {
     text-transform: uppercase;
     font-size: 1.5rem;
     z-index: 20;
-    transform: rotate(10 deg) tran;
-     transform: translateY(-00px);
+    transform: rotate(5  deg) tran;
+     transform: translateY(0px);
 
     box-shadow: 
         inset 0 0 0 4px var(--red-accent),
@@ -1629,7 +1633,7 @@ nav a:hover {
     #box-bottom-info:hover, #box-bottom-info-info:hover, #box-bottom-info-archive:hover,
     .shape:hover, .green-shape:hover, #artist-container:hover {
         transform: none !important;
-    }
+    }   
 
     /* Erlaubt vertikales Scrollen auf Mobile */
     body, html {
@@ -1655,7 +1659,7 @@ nav a:hover {
     .info-close-button {
         left: 50% !important;
         right: auto !important;
-        top: -0.3rem !important;
+        top: -1.3rem !important;
         transform: translateX(-50%) !important;
     }
 
@@ -2152,7 +2156,7 @@ nav a:hover {
         position: relative !important;
         top: auto !important;
         left: auto !important;
-        width: 100% !important;
+        width: 70% !important;
         height: auto !important;
         min-height: 2.5rem !important;
         padding: 0.25rem 0.125rem !important;
@@ -2170,6 +2174,8 @@ nav a:hover {
         transition: color 0.2s ease;
         background: white;
         overflow: hidden;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     #box-top-artistes h1 {
@@ -2269,7 +2275,7 @@ nav a:hover {
     
 /* Text-Beschreibung */
 #overlay-data div[style*="font-size: 1.2rem"] {
-    font-size: clamp(1rem, 3vw, 1.4rem) !important;
+    font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.1rem) !important;
     line-height: 1.5 !important;
     margin-bottom: 30px !important;
 }
@@ -2483,6 +2489,15 @@ nav a:hover {
         width: 100% !important;
         height: auto !important;
     }
+
+    /* Artist popup text styles - 600px */
+    #overlay-data div[style*="font-size: 1.2rem"] {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+    }
+    
+    #overlay-data p[style*="font-size: 0.8rem"] {
+        font-size: clamp(0.7rem, 2vw, 0.9rem) !important;
+    }
 }
 
 /* ===========================================
@@ -2493,6 +2508,13 @@ nav a:hover {
     #info-overlay, #artist-overlay, #event-overlay {
         align-items: flex-start !important;
         padding-top: 3.75rem;
+    }
+    
+    /* Artist close button - 768px */
+    .artist-close-button,
+    .archive-close-button,
+    .info-close-button {
+        top: -0.3rem !important;
     }
     
     /* Switch to flex layout for tablet */
@@ -2659,6 +2681,15 @@ nav a:hover {
 /* ===========================================
    MEDIA QUERIES - LARGE PHONE 480px
    =========================================== */
+@media screen and (max-width: 712px) {
+    /* Artist close button - 712px (0.5rem lower than 768px) */
+    .artist-close-button,
+    .archive-close-button,
+    .info-close-button {
+        top: 0.7rem !important;
+    }
+}
+
 @media screen and (max-width: 480px) {
     /* Overlay positioning - move popups higher */
     #info-overlay, #artist-overlay, #event-overlay {
@@ -2846,6 +2877,45 @@ nav a:hover {
     .col-header {
         font-size: 1rem;
     }
+
+    /* Artist popup text styles */
+    #overlay-data h1 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+    }
+    
+    #overlay-data div[style*="font-size: 1.2rem"] {
+        font-size: clamp(0.85rem, 2.5vw, 1.05rem) !important;
+    }
+    
+    #overlay-data p[style*="font-size: 0.8rem"] {
+        font-size: clamp(0.65rem, 2vw, 0.85rem) !important;
+    }
+    
+    #overlay-data a[style*="font-size: 0.9rem"] {
+        font-size: 0.7rem !important;
+    }
+    
+    #overlay-data a img[style*="width: 30px"] {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    #overlay-data a img[style*="width: 40px"] {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    
+    #overlay-data > div[style*="gap: 30px"] {
+        flex-direction: row !important;
+        gap: 8px !important;
+    }
+
+      /* Artist close button - 768px */
+    .artist-close-button,
+    .archive-close-button,
+    .info-close-button {
+        top: 0.7rem !important;
+    }
 }
 
 /* ===========================================
@@ -2988,11 +3058,13 @@ nav a:hover {
 
     /* Artist boxes */
     .artist-box {
-        width: 100%;
+        width: 70%;
         min-height: 3rem;
         padding: 0.5rem;
         font-size: 0.75rem;
         border-radius: 1rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Info menu */
@@ -3086,6 +3158,38 @@ nav a:hover {
     #archive-menu a {
         font-size: 0.7rem !important;
     }
+
+    /* Artist popup text styles - 320px */
+    #overlay-data h1 {
+        font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
+    }
+    
+    #overlay-data div[style*="font-size: 1.2rem"] {
+        font-size: clamp(0.75rem, 2.5vw, 0.95rem) !important;
+    }
+    
+    #overlay-data p[style*="font-size: 0.8rem"] {
+        font-size: clamp(0.6rem, 2vw, 0.75rem) !important;
+    }
+    
+    #overlay-data a[style*="font-size: 0.9rem"] {
+        font-size: 0.65rem !important;
+    }
+    
+    #overlay-data a img[style*="width: 30px"] {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    
+    #overlay-data a img[style*="width: 40px"] {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    #overlay-data > div[style*="gap: 30px"] {
+        flex-direction: row !important;
+        gap: 6px !important;
+    }
 }
 
 /* Archive artist names - Media Queries for responsive font sizes */
@@ -3118,6 +3222,13 @@ nav a:hover {
         font-size: clamp(0.95rem, 2.5vw, 1.3rem) !important;
         margin-top: 0.9rem !important;
         margin-bottom: 0.9rem !important;
+    }
+
+      /* Artist close button - 768px */
+    .artist-close-button,
+    .archive-close-button,
+    .info-close-button {
+        top: -1.1rem !important;
     }
 }
 

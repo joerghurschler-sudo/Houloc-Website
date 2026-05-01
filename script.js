@@ -9,6 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (eventBox) eventBox.style.display = "none";
         if (bientotTag) bientotTag.style.display = "none";
     }
+    
+    // Direct click handler for event-box
+    if (eventBox) {
+        eventBox.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openEvent();
+        });
+    }
 });
 
 let currentArtistImages = []; // Eigene Liste für Artist-Bilder
@@ -869,6 +878,13 @@ document.addEventListener("click", (e) => {
     if (sidebarLink) {
         e.preventDefault();
         openArtist(sidebarLink.innerText.trim());
+    }
+
+    // Event box click handler for "plus d'information"
+    const eventBox = e.target.closest("#event-box");
+    if (eventBox) {
+        e.preventDefault();
+        openEvent();
     }
 });
 
