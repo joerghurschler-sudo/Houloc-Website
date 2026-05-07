@@ -1314,12 +1314,6 @@ nav a:hover {
     transform: scale(1.03);
 }
 
-.year-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .year-marker {
     font-size: 2rem;
     text-align: center;
@@ -1327,12 +1321,15 @@ nav a:hover {
     margin-top: 0.625rem;
     transition: all 0.4s ease;
     opacity: 0.3;
+    transform-origin: left;
+    transform: scale(1);
     cursor: pointer;
 }
 
 .year-marker:hover {
     color: var(--blue-bg);
     opacity: 1;
+    transform: scale(1.2);
 }
 
 .year-marker, .line {
@@ -1342,7 +1339,9 @@ nav a:hover {
 .year-marker:active {
     color: var(--blue-bg);
     opacity: 1;
+    transform: scale(1.2);
     font-weight: 900;
+    padding-left: 0.625rem;
 }
 
 .line-container {

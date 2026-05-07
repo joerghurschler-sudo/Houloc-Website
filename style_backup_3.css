@@ -252,7 +252,7 @@ h1 {
     text-transform: uppercase;
     font-size: 1.5rem;
     z-index: 20;
-    transform: rotate(0deg) translateY(0px);
+    transform: rotate(5deg) translateY(0px);
     box-shadow:
         inset 0 0 0 4px var(--red-accent),
         0 4px 12px rgba(0, 0, 0, 0.12),
@@ -1314,12 +1314,6 @@ nav a:hover {
     transform: scale(1.03);
 }
 
-.year-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .year-marker {
     font-size: 2rem;
     text-align: center;
@@ -1327,12 +1321,15 @@ nav a:hover {
     margin-top: 0.625rem;
     transition: all 0.4s ease;
     opacity: 0.3;
+    transform-origin: left;
+    transform: scale(1);
     cursor: pointer;
 }
 
 .year-marker:hover {
     color: var(--blue-bg);
     opacity: 1;
+    transform: scale(1.2);
 }
 
 .year-marker, .line {
@@ -1342,7 +1339,9 @@ nav a:hover {
 .year-marker:active {
     color: var(--blue-bg);
     opacity: 1;
+    transform: scale(1.2);
     font-weight: 900;
+    padding-left: 0.625rem;
 }
 
 .line-container {
@@ -1973,7 +1972,6 @@ nav a:hover {
     .page-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding: 1.25rem 0.9375rem;
         gap: var(--mobile-gap-archives, 0px) !important;
     }
@@ -1988,11 +1986,11 @@ nav a:hover {
         border-radius: 2.5rem !important;
     }
 
-    #box-top-archives { order: 1; align-self: center; }
-    #archive-menu     { order: 2; padding: 0; align-self: center; }
-    #archive-main     { order: 3; height: auto !important; margin: 0 auto !important; }
-    #archive-socials  { order: 4; padding: 1.25rem; height: auto !important; align-self: center; }
-    #box-bottom-info-archive { order: 5; height: auto !important; align-self: center; }
+    #box-top-archives { order: 1; }
+    #archive-menu     { order: 2; padding: 0; }
+    #archive-main     { order: 3; height: auto !important; margin: 0 !important; }
+    #archive-socials  { order: 4; padding: 1.25rem; height: auto !important; }
+    #box-bottom-info-archive { order: 5; height: auto !important; }
 
     #box-top-archives      { margin-bottom: 0; }
     #archive-menu          { margin-bottom: 1rem !important; margin-top: 0.7rem; }
@@ -2000,14 +1998,12 @@ nav a:hover {
     #archive-socials       { margin-bottom: 0.9375rem !important; margin-top: 1rem; }
     #box-bottom-info-archive { margin-top: 0.7rem; }
 
-.quad-scroll-container {
-        width: auto !important;
-        margin: 0 auto !important;
+    .quad-scroll-container {
+        width: 100% !important;
+        margin: 0 !important;
         padding: 0 !important;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        align-self: center;
     }
 
     .scroll-column {
@@ -2024,7 +2020,7 @@ nav a:hover {
         position: sticky;
         top: -1rem;
         background: white;
-        margin-top: -1rem;
+        margin-top: 2rem;
         padding: 0.3125rem;
         font-size: 1.2rem;
         z-index: 5;
